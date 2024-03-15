@@ -4,12 +4,16 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.store.clothstar.member.repository.MemberRepository">
-    <insert id="save">
+    <insert id="save" parameterType="org.store.clothstar.member.dto.MemberDTO">
         insert into member(email, password)
-            values(#{email}, #{password})
+        values(#{email}, #{password})
     </insert>
 
     <select id="findById" resultType="org.store.clothstar.member.dto.MemberDTO">
         select * from member where id = #{id}
+    </select>
+
+    <select id="findByEmail" resultType="org.store.clothstar.member.dto.MemberDTO">
+        select * from member where email = #{email}
     </select>
 </mapper>

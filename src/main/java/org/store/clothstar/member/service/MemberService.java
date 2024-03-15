@@ -15,11 +15,15 @@ public class MemberService {
 	}
 
 	public MemberDTO save(MemberDTO memberDTO) {
-		memberRepository.save(memberDTO.getEmail(), memberDTO.getPassword());
+		memberRepository.save(memberDTO);
 		return memberDTO;
 	}
 
 	public MemberDTO findById(Long id) {
 		return memberRepository.findById(id);
+	}
+
+	public MemberDTO findByEmail(String email) {
+		return memberRepository.findByEmail(email);
 	}
 }
