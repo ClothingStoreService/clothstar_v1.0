@@ -1,29 +1,31 @@
 package org.store.clothstar.member.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.store.clothstar.member.dto.MemberDTO;
+import org.store.clothstar.member.domain.Member;
+import org.store.clothstar.member.dto.CreateMemberRequest;
+import org.store.clothstar.member.dto.MemberResponse;
 import org.store.clothstar.member.repository.MemberRepository;
 
 @Service
 public class MemberService {
 	private final MemberRepository memberRepository;
 
-	@Autowired
 	public MemberService(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
 	}
 
-	public MemberDTO save(MemberDTO memberDTO) {
-		memberRepository.save(memberDTO);
-		return memberDTO;
+	public Member save(CreateMemberRequest createMemberDTO) {
+		Member member = createMemberDTO.toMember();
+		return member;
 	}
 
-	public MemberDTO findById(Long id) {
-		return memberRepository.findById(id);
+	public MemberResponse getMemberById(Long id) {
+		Member member = memberRepository.findById(id);
+		return new MemberResponse(member);
 	}
 
-	public MemberDTO findByEmail(String email) {
-		return memberRepository.findByEmail(email);
+	public MemberResponse getMemberByEmail(String email) {
+		Member member = memberRepository.findByEmail(email);
+		return new MemberResponse(member);
 	}
 }

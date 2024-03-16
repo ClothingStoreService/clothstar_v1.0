@@ -1,16 +1,16 @@
-package org.store.clothstar.member.dto;
+package org.store.clothstar.member.domain;
 
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
-public class MemberDTO {
+public class Member {
 	private Long id;
 	private String email;
 	private String password;
 
-	public MemberDTO(String email, String password) {
+	@Builder
+	public Member(String email, String password) {
 		this.email = email;
 		this.password = password;
 	}
