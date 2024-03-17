@@ -26,5 +26,4 @@ public class MemberController {
 	public Member signup(CreateMemberRequest createMemberDTO) {
 		return memberService.save(createMemberDTO);
 	}
-
 }

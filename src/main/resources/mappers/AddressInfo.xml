@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.store.clothstar.member.repository.AddressInfoRepository">
+    <insert id="save" parameterType="org.store.clothstar.member.domain.AddressInfo">
+        insert into address_info(member_id, receiver_nm, zip_no, address1, address2, tel_no, delivery_req, default_fg)
+        values (#{memberId}, #{receiverNm}, #{zipNo}, #{address1}, #{address2}, #{telNo}, #{deliveryReq}, #{defaultFg});
+    </insert>
+</mapper>

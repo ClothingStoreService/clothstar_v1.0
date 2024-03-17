@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.store.clothstar.member.dto.CreateMemberRequest;
 import org.store.clothstar.member.repository.MemberRepository;
 
 @SpringBootTest
@@ -17,7 +16,7 @@ class MemberServiceTest {
 	@Test
 	void signup_find() {
 		//given
-		CreateMemberRequest createMemberDTO = new CreateMemberRequest("email4", "password");
+		//CreateMemberRequest createMemberDTO = new CreateMemberRequest("email4", "password");
 
 		//when
 		// int result = memberRepository.save(createMemberDTO);
