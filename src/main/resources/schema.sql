@@ -8,3 +8,4 @@ create table member (
                         PRIMARY KEY (id),
                         CONSTRAINT unique_email UNIQUE (email)
 );
+

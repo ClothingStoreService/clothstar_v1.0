@@ -19,12 +19,12 @@ class MemberServiceTest {
 	@Test
 	void signup_find() {
 		//given
-		MemberDTO memberDTO = new MemberDTO("email4", "password");
+		MemberDTO memberDTO = new MemberDTO("email5", "password");
 
 		//when
 		int result = memberRepository.save(memberDTO);
 		MemberDTO member1 = memberRepository.findById(1L);
-		MemberDTO member2 = memberRepository.findByEmail("email4");
+		MemberDTO member2 = memberRepository.findByEmail("email5");
 
 		//then
 		assertThat(result).isEqualTo(1);
