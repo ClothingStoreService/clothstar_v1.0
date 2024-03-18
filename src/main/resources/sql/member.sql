@@ -35,34 +35,22 @@ DROP TABLE IF EXISTS `address_info`;
 
 CREATE TABLE `address_info`
 (
-    `delivery_id`  BIGINT       NOT NULL NOT NULL AUTO_INCREMENT,
-    `member_id`    BIGINT       NOT NULL,
-    `receiver_nm`  varchar(255) NULL,
-    `zip_no`       varchar(255) NOT NULL,
-    `address1`     varchar(255) NOT NULL,
-    `address2`     varchar(255) NOT NULL,
-    `tel_no`       varchar(255) NOT NULL,
-    `delivery_req` varchar(255) NULL,
-    `default_fg`   char(1)      NOT NULL DEFAULT 'N',
+    `address_info_id` BIGINT       NOT NULL NOT NULL AUTO_INCREMENT,
+    `member_id`       BIGINT       NOT NULL,
+    `receiver_nm`     varchar(255) NULL,
+    `zip_no`          varchar(255) NOT NULL,
+    `address1`        varchar(255) NOT NULL,
+    `address2`        varchar(255) NOT NULL,
+    `tel_no`          varchar(255) NOT NULL,
+    `delivery_req`    varchar(255) NULL,
+    `default_fg`      char(1)      NOT NULL DEFAULT 'N',
 
-    CONSTRAINT PK_ADDRESS_INFO PRIMARY KEY (delivery_id)
+    CONSTRAINT PK_ADDRESS_INFO PRIMARY KEY (address_info_id)
 );
-select *
-from address_info;
-
-insert into address_info(member_id, receiver_nm, zip_no, address1, address2, tel_no, delivery_req)
-values (1, '받는사람', '121-2', '주소1', '주소2', '2192-323', '문앞');
-
-update address_info
-set default_fg = 23
-where member_id = 1;
-
 ALTER TABLE `address_info`
     ADD CONSTRAINT `PK_ADDRESS_INFO` PRIMARY KEY (
-                                                  `delivery_id`
+                                                  `address_info_id`
         );
-
-
 
 CREATE TABLE `seller_info`
 (
@@ -103,3 +91,13 @@ ALTER TABLE `seller_info`
 #         REFERENCES `member` (
 #                              `member_id`
 #             );
+
+select *
+from member
+where member_id = 1;
+
+select *
+from address_info;
+
+delete
+from address_info;

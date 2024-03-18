@@ -13,12 +13,12 @@ public class Member {
 	private String password;
 	private String name;
 	private String telNo;
-	private int buyAmount;
+	private int buyAmt;
 	private MemberRole role;
 	private MemberGrade grade;
-	private LocalDateTime createdDt;
-	private LocalDateTime modifiedDt;
-	private LocalDateTime deletedDt;
+	private LocalDateTime createdAt;
+	private LocalDateTime modifiedAt;
+	private LocalDateTime deletedAt;
 
 	@Builder
 	public Member(String email, String password, String name, String telNo) {

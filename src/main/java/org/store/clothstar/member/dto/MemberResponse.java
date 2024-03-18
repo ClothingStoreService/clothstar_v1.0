@@ -10,27 +10,29 @@ import lombok.Getter;
 
 @Getter
 public class MemberResponse {
+	private Long memberId;
 	private String email;
 	private String password;
 	private String name;
 	private String telNo;
-	private int buyAmount;
+	private int buyAmt;
 	private MemberRole role;
 	private MemberGrade grade;
-	private LocalDateTime createdDt;
-	private LocalDateTime modifiedDt;
-	private LocalDateTime deletedDt;
+	private LocalDateTime createdAt;
+	private LocalDateTime modifiedAt;
+	private LocalDateTime deletedAt;
 
 	public MemberResponse(Member member) {
+		this.memberId = member.getMemberId();
 		this.email = member.getEmail();
 		this.password = member.getPassword();
 		this.name = member.getName();
 		this.telNo = member.getTelNo();
-		this.buyAmount = member.getBuyAmount();
+		this.buyAmt = member.getBuyAmt();
 		this.role = member.getRole();
 		this.grade = member.getGrade();
-		this.createdDt = member.getCreatedDt();
-		this.modifiedDt = member.getModifiedDt();
-		this.deletedDt = member.getDeletedDt();
+		this.createdAt = member.getCreatedAt();
+		this.modifiedAt = member.getModifiedAt();
+		this.deletedAt = member.getDeletedAt();
 	}
 }

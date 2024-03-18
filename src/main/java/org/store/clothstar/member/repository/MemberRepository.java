@@ -9,9 +9,9 @@ import org.store.clothstar.member.domain.Member;
 public interface MemberRepository {
 	public int save(Member member);
 
-	public List<Member> list();
+	public List<Member> findAll();
 
-	public Member findById(Long id);
+	public Member findById(Long memberId);
 
 	public Member findByEmail(String email);
 }

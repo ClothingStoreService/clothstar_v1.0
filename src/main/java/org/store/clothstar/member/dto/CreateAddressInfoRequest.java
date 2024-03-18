@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class CreateAddressInfoRequest {
-	private String memberId;
+	private Long memberId;
 	private String receiverNm;
 	private String zipNo;
 	private String address1;

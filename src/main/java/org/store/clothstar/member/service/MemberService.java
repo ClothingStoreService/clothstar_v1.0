@@ -1,5 +1,8 @@
 package org.store.clothstar.member.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 import org.store.clothstar.member.domain.Member;
 import org.store.clothstar.member.dto.CreateMemberRequest;
@@ -16,11 +19,22 @@ public class MemberService {
 
 	public Member save(CreateMemberRequest createMemberDTO) {
 		Member member = createMemberDTO.toMember();
+		memberRepository.save(member);
 		return member;
 	}
 
-	public MemberResponse getMemberById(Long id) {
-		Member member = memberRepository.findById(id);
+	public List<MemberResponse> getAllMember() {
+		List<Member> memberList = memberRepository.findAll();
+
+		List<MemberResponse> memberResponseList = memberList.stream()
+			.map(MemberResponse::new)
+			.collect(Collectors.toList());
+
+		return memberResponseList;
+	}
+
+	public MemberResponse getMemberById(Long memberId) {
+		Member member = memberRepository.findById(memberId);
 		return new MemberResponse(member);
 	}
 
@@ -28,4 +42,5 @@ public class MemberService {
 		Member member = memberRepository.findByEmail(email);
 		return new MemberResponse(member);
 	}
+
 }
