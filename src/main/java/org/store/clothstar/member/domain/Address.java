@@ -2,12 +2,14 @@ package org.store.clothstar.member.domain;
 
 import org.store.clothstar.common.domain.Flag;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-public class AddressInfo {
-	private Long addressInfoId;
+@AllArgsConstructor
+public class Address {
+	private Long addressId;
 	private Long memberId;
 	private String receiverNm;
 	private String zipNo;
@@ -18,9 +20,8 @@ public class AddressInfo {
 	private Flag defaultFg;
 
 	@Builder
-	public AddressInfo(Long addressInfoId, Long memberId, String receiverNm, String zipNo, String address1,
+	public Address(Long memberId, String receiverNm, String zipNo, String address1,
 		String address2, String telNo, String deliveryReq, Flag defaultFg) {
-		this.addressInfoId = getAddressInfoId();
 		this.memberId = memberId;
 		this.receiverNm = receiverNm;
 		this.zipNo = zipNo;

@@ -1,14 +1,14 @@
 package org.store.clothstar.member.dto;
 
 import org.store.clothstar.common.domain.Flag;
-import org.store.clothstar.member.domain.AddressInfo;
+import org.store.clothstar.member.domain.Address;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
-public class CreateAddressInfoRequest {
+@Setter
+public class CreateAddressRequest {
 	private Long memberId;
 	private String receiverNm;
 	private String zipNo;
@@ -18,8 +18,8 @@ public class CreateAddressInfoRequest {
 	private String deliveryReq;
 	private Flag defaultFg;
 
-	public AddressInfo toAddressInfo() {
-		return AddressInfo.builder()
+	public Address toAddress() {
+		return Address.builder()
 			.memberId(memberId)
 			.receiverNm(receiverNm)
 			.zipNo(zipNo)

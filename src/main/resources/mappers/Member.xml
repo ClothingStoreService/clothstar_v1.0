@@ -4,25 +4,15 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.store.clothstar.member.repository.MemberRepository">
-    <resultMap type="org.store.clothstar.member.domain.Member" id="member">
-        <result property="memberId" column="member_id"/>
-        <result property="sellerId" column="seller_id"/>
-        <result property="telNo" column="tel_no"/>
-        <result property="buyAmt" column="buy_amt"/>
-        <result property="createdAt" column="created_at"/>
-        <result property="modifiedAt" column="modified_at"/>
-        <result property="deletedAt" column="deletedAt"/>
-    </resultMap>
-
-    <select id="findAll" resultMap="member">
+    <select id="findAll" resultType="org.store.clothstar.member.domain.Member">
         select * from member;
     </select>
 
-    <select id="findById" resultMap="member">
+    <select id="findById" resultType="org.store.clothstar.member.domain.Member">
         select * from member where member_id = #{memberId}
     </select>
 
-    <select id="findByEmail" resultMap="member">
+    <select id="findByEmail" resultType="org.store.clothstar.member.domain.Member">
         select * from member where email = #{email}
     </select>
 

@@ -19,8 +19,6 @@ public class MemberResponse {
 	private MemberRole role;
 	private MemberGrade grade;
 	private LocalDateTime createdAt;
-	private LocalDateTime modifiedAt;
-	private LocalDateTime deletedAt;
 
 	public MemberResponse(Member member) {
 		this.memberId = member.getMemberId();
@@ -32,7 +30,5 @@ public class MemberResponse {
 		this.role = member.getRole();
 		this.grade = member.getGrade();
 		this.createdAt = member.getCreatedAt();
-		this.modifiedAt = member.getModifiedAt();
-		this.deletedAt = member.getDeletedAt();
 	}
 }

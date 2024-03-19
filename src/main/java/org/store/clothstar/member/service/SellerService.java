@@ -1,0 +1,26 @@
+package org.store.clothstar.member.service;
+
+import org.springframework.stereotype.Service;
+import org.store.clothstar.member.domain.Seller;
+import org.store.clothstar.member.dto.CreateSellerRequest;
+import org.store.clothstar.member.dto.SellerResponse;
+import org.store.clothstar.member.repository.SellerRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class SellerService {
+	private final SellerRepository sellerRepository;
+
+	public SellerResponse save(CreateSellerRequest createSellerRequest) {
+		Seller seller = createSellerRequest.toSeller();
+		sellerRepository.save(seller);
+		return new SellerResponse(seller);
+	}
+
+	public SellerResponse getSellerById(Long memberId) {
+		Seller seller = sellerRepository.findById(memberId);
+		return new SellerResponse(seller);
+	}
+}

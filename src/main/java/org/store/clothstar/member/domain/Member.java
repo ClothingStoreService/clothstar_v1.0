@@ -2,10 +2,12 @@ package org.store.clothstar.member.domain;
 
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public class Member {
 	private Long memberId;
 	private Long sellerId;
@@ -27,4 +29,5 @@ public class Member {
 		this.name = name;
 		this.telNo = telNo;
 	}
+
 }
