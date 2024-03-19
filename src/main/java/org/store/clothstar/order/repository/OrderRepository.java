@@ -1,11 +1,11 @@
 package org.store.clothstar.order.repository;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.store.clothstar.order.domain.Order;
+import org.store.clothstar.order.dto.CreateOrderRequest;
 
 @Mapper
 public interface OrderRepository {
-	int save(Order order);
+	int save(CreateOrderRequest createOrderRequest);
 
-	Order get(Long orderId);
+	CreateOrderRequest get(Long orderId);
 }

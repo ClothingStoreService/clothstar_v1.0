@@ -1,7 +1,6 @@
 package org.store.clothstar.order.service;
 
 import org.springframework.stereotype.Service;
-import org.store.clothstar.order.domain.Order;
 import org.store.clothstar.order.dto.CreateOrderRequest;
 import org.store.clothstar.order.repository.OrderRepository;
 
@@ -13,13 +12,12 @@ public class OrderService {
 		this.orderRepository = orderRepository;
 	}
 
-	public Order save(CreateOrderRequest createOrderRequest) {
-		Order order = createOrderRequest.toOrder();
-		orderRepository.save(order);
-		return order;
+	public CreateOrderRequest save(CreateOrderRequest createOrderRequest) {
+		orderRepository.save(createOrderRequest);
+		return createOrderRequest;
 	}
 
-	public Order get(Long orderId) {
+	public CreateOrderRequest get(Long orderId) {
 		return orderRepository.get(orderId);
 	}
 }
