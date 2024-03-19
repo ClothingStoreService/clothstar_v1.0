@@ -4,7 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.store.clothstar.order.repository.OrderRepository">
-    <insert id="save" parameterType="org.store.clothstar.order.domain.Order">
+    <insert id="saveOrder" parameterType="org.store.clothstar.order.domain.Order">
         INSERT INTO orderline (order_id, member_id, delivery_id, created_dt, created_at, status, shipping_amt,
         products_amt,
         payment_method, payment_amt)
@@ -12,7 +12,25 @@
         #{productsAmt}, #{paymentMethod}, #{paymentAmt});
     </insert>
 
-    <select id="get" resultType="org.store.clothstar.order.domain.Order">
+    <!--    <resultMap type="org.store.clothstar.order.domain.Order" id="order">-->
+    <!--        <result property="orderId" column="order_id"/>-->
+    <!--        <result property="memberId" column="member_id"/>-->
+    <!--        <result property="deliveryId" column="delivery_id"/>-->
+    <!--        <result property="createdDt" column="created_dt"/>-->
+    <!--        <result property="createdAt" column="created_at"/>-->
+    <!--        <result property="status" column="status"/>-->
+    <!--        <result property="shippingAmt" column="shipping_amt"/>-->
+    <!--        <result property="productsAmt" column="products_amt"/>-->
+    <!--        <result property="paymentMethod" column="payment_method"/>-->
+    <!--        <result property="paymentAmt" column="payment_amt"/>-->
+    <!--    </resultMap>-->
+
+    <!--    <select id="getOrder" resultMap="order">-->
+    <!--        select * from orderline-->
+    <!--        where order_id = #{orderId}-->
+    <!--    </select>-->
+
+    <select id="getOrder" resultType="org.store.clothstar.order.domain.Order">
         select * from orderline where order_id = #{orderId}
     </select>
 </mapper>

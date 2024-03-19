@@ -3,15 +3,16 @@ package org.store.clothstar.order.dto;
 import java.time.LocalDateTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.store.clothstar.order.domain.Order;
 import org.store.clothstar.order.domain.PaymentMethod;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+@AllArgsConstructor
 @Getter
 @Setter
-public class CreateOrderRequest {
+public class OrderResponse {
 	private Long orderId;
 	private Long memberId;
 	private Long deliveryId;
@@ -23,19 +24,4 @@ public class CreateOrderRequest {
 	private int productsAmt;
 	private PaymentMethod paymentMethod;
 	private int paymentAmt;
-
-	public Order toOrder() {
-		return Order.builder()
-			.orderId(orderId)
-			.memberId(memberId)
-			.deliveryId(deliveryId)
-			.createdDt(createdDt)
-			.createdAt(createdAt)
-			.status(status)
-			.shippingAmt(shippingAmt)
-			.productsAmt(productsAmt)
-			.paymentMethod(paymentMethod)
-			.paymentAmt(paymentAmt)
-			.build();
-	}
 }
