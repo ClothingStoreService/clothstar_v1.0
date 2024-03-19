@@ -1,20 +1,10 @@
-DROP TABLE IF EXISTS member;
 DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS cateory;
 DROP TABLE IF EXISTS `option`;
 
-create table member (
-                        id BIGINT AUTO_INCREMENT,
-                        email varchar(200) NOT NULL,
-                        password varchar(200) NOT NULL,
-
-                        PRIMARY KEY (id),
-                        CONSTRAINT unique_email UNIQUE (email)
-);
-
 CREATE TABLE `product` (
                            `product_id`	BIGINT	NOT NULL AUTO_INCREMENT,
-                           `seller_id`	BIGINT,
+                           `member_id`	BIGINT,
                            `category_id`	INT	,
                            `name`	varchar(30)	NOT NULL,
                            `price`	INT	NOT NULL,
