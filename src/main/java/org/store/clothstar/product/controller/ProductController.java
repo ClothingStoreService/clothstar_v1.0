@@ -1,10 +1,7 @@
 package org.store.clothstar.product.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.store.clothstar.product.dto.CreateProductRequest;
 import org.store.clothstar.product.dto.CreateProductResponse;
 import org.store.clothstar.product.dto.ProductDetailResponse;
@@ -22,10 +19,10 @@ public class ProductController {
         return productService.saveProduct(createProductRequest);
     }
 
-    /*
-    @GetMapping("{productId}")
-    public ProductDetailResponse findProduct(Long productId){
-        return productService.saveProduct(createProductRequest);
+
+    @GetMapping("/{productId}")
+    public ProductDetailResponse findProduct(@PathVariable Long productId){
+        return productService.getProduct(productId);
     }
-    */
+
 }

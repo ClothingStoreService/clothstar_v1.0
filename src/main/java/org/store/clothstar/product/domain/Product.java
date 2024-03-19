@@ -6,7 +6,6 @@ import org.store.clothstar.product.domain.type.ProductStatus;
 import java.time.LocalDateTime;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Product {
     private Long productId;

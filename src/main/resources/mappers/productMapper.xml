@@ -11,6 +11,6 @@
     </insert>
     <select id="selectByProductId" parameterType="Long" resultType="org.store.clothstar.product.domain.Product">
         SELECT *
-        FROM product WHERE id = #{producId}
+        FROM product WHERE product_id = #{producId}
     </select>
 </mapper>
