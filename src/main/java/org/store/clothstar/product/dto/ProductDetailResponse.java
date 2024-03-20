@@ -8,7 +8,6 @@ import org.store.clothstar.product.domain.type.ProductStatus;
 
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
 @Getter
 @Builder
 public class ProductDetailResponse {
