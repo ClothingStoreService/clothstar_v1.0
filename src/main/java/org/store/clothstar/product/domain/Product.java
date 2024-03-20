@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Product {
     private Long productId;
     private Long sellerId;
