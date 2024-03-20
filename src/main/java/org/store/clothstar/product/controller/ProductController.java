@@ -23,6 +23,4 @@ public class ProductController {
     public CreateProductResponse saveProduct(CreateProductRequest createProductRequest){
         return productService.saveProduct(createProductRequest);
     }
-
-
 }

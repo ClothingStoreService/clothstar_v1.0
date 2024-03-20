@@ -26,5 +26,4 @@ public class Product {
         this.stock = stock;
         this.status = status;
     }
-
 }
