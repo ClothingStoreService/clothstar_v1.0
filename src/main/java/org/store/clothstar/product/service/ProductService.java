@@ -14,14 +14,15 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
+    public ProductDetailResponse getProduct(Long productId) {
+        Product product = productRepository.selectByProductId(productId);
+        return ProductDetailResponse.from(product);
+    }
+
     public CreateProductResponse saveProduct(CreateProductRequest createProductRequest) {
         Product product = createProductRequest.toProduct();
         productRepository.save(product);
         return CreateProductResponse.from(product);
     }
 
-    public ProductDetailResponse getProduct(Long productId) {
-        Product product = productRepository.selectByProductId(productId);
-        return ProductDetailResponse.from(product);
-    }
 }
