@@ -13,4 +13,9 @@
         SELECT *
         FROM product WHERE product_id = #{producId}
     </select>
+    <insert id="save"
+            parameterType="org.store.clothstar.product.domain.Product">
+        INSERT INTO product(product_id, member_id, category_id, name, price, stock, status)
+        VALUES (#{productId}, #{sellerId}, #{categoryId}, #{name}, #{price}, #{stock}, #{status})
+    </insert>
 </mapper>
