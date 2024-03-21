@@ -13,14 +13,14 @@ import lombok.AllArgsConstructor;
 public class SellerService {
 	private final SellerRepository sellerRepository;
 
-	public SellerResponse save(CreateSellerRequest createSellerRequest) {
-		Seller seller = createSellerRequest.toSeller();
-		sellerRepository.save(seller);
+	public SellerResponse getSellerById(Long memberId) {
+		Seller seller = sellerRepository.findById(memberId);
 		return new SellerResponse(seller);
 	}
 
-	public SellerResponse getSellerById(Long memberId) {
-		Seller seller = sellerRepository.findById(memberId);
+	public SellerResponse sellerSave(CreateSellerRequest createSellerRequest, Long memberId) {
+		Seller seller = createSellerRequest.toSeller(memberId);
+		sellerRepository.save(seller);
 		return new SellerResponse(seller);
 	}
 }

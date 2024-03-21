@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.store.clothstar.member.domain.Member;
 import org.store.clothstar.member.dto.CreateMemberRequest;
@@ -25,12 +26,12 @@ public class MemberController {
 	}
 
 	@GetMapping("/v1/members/{id}")
-	public MemberResponse getMember(@PathVariable Long id) {
-		return memberService.getMemberById(id);
+	public MemberResponse getMember(@PathVariable("id") Long memberId) {
+		return memberService.getMemberById(memberId);
 	}
 
 	@PostMapping("/v1/members")
-	public Member signup(CreateMemberRequest createMemberDTO) {
-		return memberService.save(createMemberDTO);
+	public Member signup(@RequestBody CreateMemberRequest createMemberDTO) {
+		return memberService.signup(createMemberDTO);
 	}
 }

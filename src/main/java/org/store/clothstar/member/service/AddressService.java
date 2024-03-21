@@ -28,9 +28,7 @@ public class AddressService {
 	}
 
 	public AddressResponse addrSave(CreateAddressRequest createAddressRequest, Long memberId) {
-		createAddressRequest.setMemberId(memberId);
-
-		Address address = createAddressRequest.toAddress();
+		Address address = createAddressRequest.toAddress(memberId);
 		addressInfoRepository.save(address);
 		return new AddressResponse(address);
 	}

@@ -1,13 +1,10 @@
 package org.store.clothstar.member.domain;
 
-import org.store.clothstar.common.domain.Flag;
-
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
+@Builder
 public class Address {
 	private Long addressId;
 	private Long memberId;
@@ -17,18 +14,5 @@ public class Address {
 	private String address2;
 	private String telNo;
 	private String deliveryReq;
-	private Flag defaultFg;
-
-	@Builder
-	public Address(Long memberId, String receiverNm, String zipNo, String address1,
-		String address2, String telNo, String deliveryReq, Flag defaultFg) {
-		this.memberId = memberId;
-		this.receiverNm = receiverNm;
-		this.zipNo = zipNo;
-		this.address1 = address1;
-		this.address2 = address2;
-		this.telNo = telNo;
-		this.deliveryReq = deliveryReq;
-		this.defaultFg = defaultFg;
-	}
+	private int isDefault;
 }

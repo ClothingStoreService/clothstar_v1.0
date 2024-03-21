@@ -2,15 +2,13 @@ package org.store.clothstar.member.domain;
 
 import java.time.LocalDateTime;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
+@Builder
 public class Member {
 	private Long memberId;
-	private Long sellerId;
 	private String email;
 	private String password;
 	private String name;
@@ -21,13 +19,4 @@ public class Member {
 	private LocalDateTime createdAt;
 	private LocalDateTime modifiedAt;
 	private LocalDateTime deletedAt;
-
-	@Builder
-	public Member(String email, String password, String name, String telNo) {
-		this.email = email;
-		this.password = password;
-		this.name = name;
-		this.telNo = telNo;
-	}
-
 }

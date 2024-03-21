@@ -2,7 +2,6 @@ package org.store.clothstar.member.dto;
 
 import java.time.LocalDateTime;
 
-import org.store.clothstar.common.domain.Flag;
 import org.store.clothstar.member.domain.Seller;
 
 import lombok.Getter;
@@ -13,7 +12,6 @@ public class SellerResponse {
 	private String brandNm;
 	private String bizNo;
 	private int sellAmt;
-	private Flag sellFg;
 	private LocalDateTime createdAt;
 
 	public SellerResponse(Seller seller) {
@@ -21,7 +19,6 @@ public class SellerResponse {
 		this.brandNm = seller.getBrandNm();
 		this.bizNo = seller.getBizNo();
 		this.sellAmt = seller.getSellAmt();
-		this.sellFg = seller.getSellFg();
 		this.createdAt = seller.getCreatedAt();
 	}
 }

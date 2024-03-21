@@ -1,13 +1,10 @@
 package org.store.clothstar.member.dto;
 
-import org.store.clothstar.common.domain.Flag;
 import org.store.clothstar.member.domain.Address;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
 public class CreateAddressRequest {
 	private Long memberId;
 	private String receiverNm;
@@ -16,9 +13,9 @@ public class CreateAddressRequest {
 	private String address2;
 	private String telNo;
 	private String deliveryReq;
-	private Flag defaultFg;
+	private int isDefault;
 
-	public Address toAddress() {
+	public Address toAddress(Long memberId) {
 		return Address.builder()
 			.memberId(memberId)
 			.receiverNm(receiverNm)
@@ -27,7 +24,7 @@ public class CreateAddressRequest {
 			.address2(address2)
 			.telNo(telNo)
 			.deliveryReq(deliveryReq)
-			.defaultFg(defaultFg)
+			.isDefault(isDefault)
 			.build();
 	}
 }

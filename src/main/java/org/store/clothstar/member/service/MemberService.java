@@ -17,7 +17,7 @@ public class MemberService {
 		this.memberRepository = memberRepository;
 	}
 
-	public Member save(CreateMemberRequest createMemberDTO) {
+	public Member signup(CreateMemberRequest createMemberDTO) {
 		Member member = createMemberDTO.toMember();
 		memberRepository.save(member);
 		return member;

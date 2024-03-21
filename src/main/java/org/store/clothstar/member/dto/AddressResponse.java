@@ -1,6 +1,5 @@
 package org.store.clothstar.member.dto;
 
-import org.store.clothstar.common.domain.Flag;
 import org.store.clothstar.member.domain.Address;
 
 import lombok.Getter;
@@ -14,7 +13,7 @@ public class AddressResponse {
 	private String address2;
 	private String telNo;
 	private String deliveryReq;
-	private Flag defaultFg;
+	private int isDefault;
 
 	public AddressResponse(Address address) {
 		this.memberId = address.getMemberId();
@@ -24,6 +23,6 @@ public class AddressResponse {
 		this.address2 = address.getAddress2();
 		this.telNo = address.getTelNo();
 		this.deliveryReq = address.getDeliveryReq();
-		this.defaultFg = address.getDefaultFg();
+		this.isDefault = address.getIsDefault();
 	}
 }

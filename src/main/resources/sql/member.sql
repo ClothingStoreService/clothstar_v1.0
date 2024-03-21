@@ -3,7 +3,6 @@ DROP TABLE IF EXISTS `member`;
 CREATE TABLE `member`
 (
     `member_id`   BIGINT       NOT NULL AUTO_INCREMENT,
-    `seller_id`   BIGINT       NULL COMMENT 'SELLER의 경우만 NULL이 아님',
     `email`       varchar(255) NOT NULL,
     `password`    varchar(255) NOT NULL,
     `name`        varchar(255) NOT NULL,
@@ -30,7 +29,7 @@ CREATE TABLE `address`
     `address2`     varchar(255) NOT NULL,
     `tel_no`       varchar(255) NOT NULL,
     `delivery_req` varchar(255) NULL,
-    `default_fg`   char(1)      NOT NULL DEFAULT 'N',
+    `is_default`   boolean      NOT NULL DEFAULT false,
 
     CONSTRAINT PK_ADDRESS PRIMARY KEY (address_id)
 );
@@ -43,17 +42,14 @@ CREATE TABLE `seller`
     `brand_nm`   varchar(255) NOT NULL,
     `biz_no`     varchar(255) NULL,
     `sell_amt`   int          NULL     DEFAULT 0,
-    `sell_fg`    char(1)      NULL     DEFAULT 'N' COMMENT 'N, Y',
+    `authority`  varchar(255) NULL,
     `created_at` datetime     NOT NULL DEFAULT now()
 );
 
 insert into seller(member_id, brand_nm, biz_no)
 values (1, '아이다스', 'ad');
 
-
 select *
-from seller
-where member_id = 1;
+from member;
 select *
 from address;
-

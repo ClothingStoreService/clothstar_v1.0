@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.store.clothstar.member.dto.AddressResponse;
 import org.store.clothstar.member.dto.CreateAddressRequest;
@@ -19,12 +20,14 @@ public class AddressController {
 	}
 
 	@GetMapping("/v1/members/{id}/address")
-	public List<AddressResponse> getAllMemberAddress(@PathVariable Long id) {
-		return addressService.getAllMemberAddress(id);
+	public List<AddressResponse> getAllMemberAddress(@PathVariable("id") Long memberId) {
+		return addressService.getAllMemberAddress(memberId);
 	}
 
 	@PostMapping("/v1/members/{id}/address")
-	public AddressResponse addrSave(CreateAddressRequest createAddressRequest, @PathVariable Long id) {
-		return addressService.addrSave(createAddressRequest, id);
+	public AddressResponse addrSave(@PathVariable("id") Long memberId,
+		@RequestBody CreateAddressRequest createAddressRequest) {
+		System.out.println("isDefalut " + createAddressRequest.getIsDefault());
+		return addressService.addrSave(createAddressRequest, memberId);
 	}
 }
