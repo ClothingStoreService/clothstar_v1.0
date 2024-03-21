@@ -14,11 +14,6 @@ public class OrderService {
 		this.orderRepository = orderRepository;
 	}
 
-	public CreateOrderRequest saveOrder(CreateOrderRequest createOrderRequest) {
-		orderRepository.saveOrder(createOrderRequest);
-		return createOrderRequest;
-	}
-
 	public OrderResponse getOrder(Long orderId) {
 		Order order = orderRepository.getOrder(orderId);
 		OrderResponse orderResponse = new OrderResponse(order.getOrderId(), order.getMemberId(),
@@ -26,5 +21,10 @@ public class OrderService {
 			order.getShippingAmt(),
 			order.getProductsAmt(), order.getPaymentMethod(), order.getPaymentAmt());
 		return orderResponse;
+	}
+
+	public CreateOrderRequest saveOrder(CreateOrderRequest createOrderRequest) {
+		orderRepository.saveOrder(createOrderRequest);
+		return createOrderRequest;
 	}
 }

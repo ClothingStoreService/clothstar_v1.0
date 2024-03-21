@@ -6,7 +6,7 @@ import org.store.clothstar.order.dto.CreateOrderRequest;
 
 @Mapper
 public interface OrderRepository {
-	int saveOrder(CreateOrderRequest createOrderRequest);
-
 	Order getOrder(Long orderId);
+
+	int saveOrder(CreateOrderRequest createOrderRequest);
 }
