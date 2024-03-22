@@ -2,6 +2,7 @@ package org.store.clothstar.product.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.store.clothstar.product.domain.Product;
 import org.store.clothstar.product.dto.CreateProductRequest;
 import org.store.clothstar.product.dto.CreateProductResponse;
@@ -18,20 +19,20 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public List<ProductListResponse> getAllProduct() {
+    @Transactional(readOnly = true)
     public List<ProductResponse> getAllProduct() {
         return productRepository.selectAllProductsNotDeleted().stream()
                 .map(ProductResponse::from)
                 .collect(Collectors.toList());
     }
 
-            productResponses.add(productListResponse);
+    @Transactional(readOnly = true)
     public ProductDetailResponse getProduct(Long productId) {
         Product product = productRepository.selectByProductId(productId);
         return ProductDetailResponse.from(product);
     }
 
-    public CreateProductResponse saveProduct(CreateProductRequest createProductRequest) {
+    @Transactional(readOnly = true)
     public CreateProductResponse createProduct(CreateProductRequest createProductRequest) {
         Product product = createProductRequest.toProduct();
         productRepository.save(product);
