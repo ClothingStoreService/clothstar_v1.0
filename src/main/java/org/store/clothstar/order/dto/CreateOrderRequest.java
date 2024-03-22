@@ -9,41 +9,41 @@ import org.store.clothstar.order.domain.Order;
 import org.store.clothstar.order.domain.PaymentMethod;
 
 import lombok.Getter;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
-@Setter
+@RequiredArgsConstructor
 public class CreateOrderRequest {
 	@NotNull
-	private Long orderId;
+	final private Long orderId;
 
 	@NotNull
-	private Long memberId;
+	final private Long memberId;
 
 	@NotNull
-	private Long deliveryId;
+	final private Long deliveryId;
 
 	@NotNull
-	private String createdDate;
+	final private String createdDate;
 
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-	private LocalDateTime createdTime;
+	final private LocalDateTime createdTime;
 
 	@NotNull
-	private String status;
+	final private String status;
 
 	@NotNull
-	private int totalShippingPrice;
+	final private int totalShippingPrice;
 
 	@NotNull
-	private int totalProductsPrice;
+	final private int totalProductsPrice;
 
 	@NotNull
-	private PaymentMethod paymentMethod;
+	final private PaymentMethod paymentMethod;
 
 	@NotNull
-	private int totalPrice;
+	final private int totalPrice;
 
 	public Order toOrder() {
 		return Order.builder()
