@@ -7,14 +7,14 @@ import org.store.clothstar.product.domain.type.ProductStatus;
 
 @Getter
 @Builder
-public class ProductListResponse {
+public class ProductResponse {
     private String name;
     private int price;
     private int stock;
     private ProductStatus productStatus;
 
-    public static ProductListResponse from(Product product) {
-        return ProductListResponse.builder()
+    public static ProductResponse from(Product product) {
+        return ProductResponse.builder()
                 .name(product.getName())
                 .price(product.getPrice())
                 .stock(product.getStock())

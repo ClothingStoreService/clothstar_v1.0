@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.store.clothstar.product.dto.CreateProductRequest;
 import org.store.clothstar.product.dto.CreateProductResponse;
 import org.store.clothstar.product.dto.ProductDetailResponse;
-import org.store.clothstar.product.dto.ProductListResponse;
+import org.store.clothstar.product.dto.ProductResponse;
 import org.store.clothstar.product.service.ProductService;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping
-    public List<ProductListResponse> getAllProduct() {
+    public List<ProductResponse> getAllProduct() {
         return productService.getAllProduct();
     }
 
