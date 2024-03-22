@@ -9,8 +9,6 @@ import org.store.clothstar.product.dto.ProductDetailResponse;
 import org.store.clothstar.product.dto.ProductListResponse;
 import org.store.clothstar.product.service.ProductService;
 
-import javax.validation.Valid;
-import java.awt.print.Pageable;
 import java.util.List;
 
 @RestController
@@ -31,7 +29,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public CreateProductResponse saveProduct(@Validated @RequestBody CreateProductRequest createProductRequest){
-        return productService.saveProduct(createProductRequest);
+    public CreateProductResponse createProduct(@Validated @RequestBody CreateProductRequest createProductRequest){
+        return productService.createProduct(createProductRequest);
     }
 }

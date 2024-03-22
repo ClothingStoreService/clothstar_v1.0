@@ -38,6 +38,7 @@ public class ProductService {
     }
 
     public CreateProductResponse saveProduct(CreateProductRequest createProductRequest) {
+    public CreateProductResponse createProduct(CreateProductRequest createProductRequest) {
         Product product = createProductRequest.toProduct();
         productRepository.save(product);
         return CreateProductResponse.from(product);
