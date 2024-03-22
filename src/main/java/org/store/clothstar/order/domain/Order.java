@@ -14,27 +14,37 @@ public class Order {
 	private Long orderId;
 	private Long memberId;
 	private Long deliveryId;
-	private String createdDt;
+	private String createdDate;
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-	private LocalDateTime createdAt;
+	private LocalDateTime createdTime;
 	private String status;
-	private int shippingAmt;
-	private int productsAmt;
+	private int totalShippingPrice;
+	private int totalProductsPrice;
 	private PaymentMethod paymentMethod;
-	private int paymentAmt;
+	private int totalPrice;
 
 	@Builder
-	public Order(Long orderId, Long memberId, Long deliveryId, String createdDt, LocalDateTime createdAt, String status,
-		int shippingAmt, int productsAmt, PaymentMethod paymentMethod, int paymentAmt) {
+	public Order(
+		Long orderId,
+		Long memberId,
+		Long deliveryId,
+		String createdDate,
+		LocalDateTime createdTime,
+		String status,
+		int totalShippingPrice,
+		int totalProductsPrice,
+		PaymentMethod paymentMethod,
+		int totalPrice
+	) {
 		this.orderId = orderId;
 		this.memberId = memberId;
 		this.deliveryId = deliveryId;
-		this.createdDt = createdDt;
-		this.createdAt = createdAt;
+		this.createdDate = createdDate;
+		this.createdTime = createdTime;
 		this.status = status;
-		this.shippingAmt = shippingAmt;
-		this.productsAmt = productsAmt;
+		this.totalShippingPrice = totalShippingPrice;
+		this.totalProductsPrice = totalProductsPrice;
 		this.paymentMethod = paymentMethod;
-		this.paymentAmt = paymentAmt;
+		this.totalPrice = totalPrice;
 	}
 }

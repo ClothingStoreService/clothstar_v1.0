@@ -16,10 +16,17 @@ public class OrderService {
 
 	public OrderResponse getOrder(Long orderId) {
 		Order order = orderRepository.getOrder(orderId);
-		OrderResponse orderResponse = new OrderResponse(order.getOrderId(), order.getMemberId(),
-			order.getDeliveryId(), order.getCreatedDt(), order.getCreatedAt(), order.getStatus(),
-			order.getShippingAmt(),
-			order.getProductsAmt(), order.getPaymentMethod(), order.getPaymentAmt());
+		OrderResponse orderResponse = new OrderResponse(
+			order.getOrderId(),
+			order.getMemberId(),
+			order.getDeliveryId(),
+			order.getCreatedDate(),
+			order.getCreatedTime(),
+			order.getStatus(),
+			order.getTotalShippingPrice(),
+			order.getTotalProductsPrice(),
+			order.getPaymentMethod(),
+			order.getTotalPrice());
 		return orderResponse;
 	}
 

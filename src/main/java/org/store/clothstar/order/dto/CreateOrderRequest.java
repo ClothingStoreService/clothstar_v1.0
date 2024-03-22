@@ -24,39 +24,39 @@ public class CreateOrderRequest {
 	private Long deliveryId;
 
 	@NotNull
-	private String createdDt;
+	private String createdDate;
 
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-	private LocalDateTime createdAt;
+	private LocalDateTime createdTime;
 
 	@NotNull
 	private String status;
 
 	@NotNull
-	private int shippingAmt;
+	private int totalShippingPrice;
 
 	@NotNull
-	private int productsAmt;
+	private int totalProductsPrice;
 
 	@NotNull
 	private PaymentMethod paymentMethod;
 
 	@NotNull
-	private int paymentAmt;
+	private int totalPrice;
 
 	public Order toOrder() {
 		return Order.builder()
 			.orderId(orderId)
 			.memberId(memberId)
 			.deliveryId(deliveryId)
-			.createdDt(createdDt)
-			.createdAt(createdAt)
+			.createdDate(createdDate)
+			.createdTime(createdTime)
 			.status(status)
-			.shippingAmt(shippingAmt)
-			.productsAmt(productsAmt)
+			.totalShippingPrice(totalShippingPrice)
+			.totalProductsPrice(totalProductsPrice)
 			.paymentMethod(paymentMethod)
-			.paymentAmt(paymentAmt)
+			.totalPrice(totalPrice)
 			.build();
 	}
 }

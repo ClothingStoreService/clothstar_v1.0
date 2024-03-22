@@ -12,7 +12,8 @@
         INSERT INTO orderline (order_id, member_id, delivery_id, created_dt, created_at, status, shipping_amt,
         products_amt,
         payment_method, payment_amt)
-        VALUES (#{orderId}, #{memberId}, #{deliveryId}, #{createdDt}, #{createdAt}, #{status}, #{shippingAmt},
-        #{productsAmt}, #{paymentMethod}, #{paymentAmt});
+        VALUES (#{orderId}, #{memberId}, #{deliveryId}, #{createdDate}, #{createdTime}, #{status},
+        #{totalShippingPrice},
+        #{totalProductsPrice}, #{paymentMethod}, #{totalPrice});
     </insert>
 </mapper>

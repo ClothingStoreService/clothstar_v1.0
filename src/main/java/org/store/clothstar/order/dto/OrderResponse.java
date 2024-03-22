@@ -16,12 +16,12 @@ public class OrderResponse {
 	private Long orderId;
 	private Long memberId;
 	private Long deliveryId;
-	private String createdDt;
+	private String createdDate;
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-	private LocalDateTime createdAt;
+	private LocalDateTime createdTime;
 	private String status;
-	private int shippingAmt;
-	private int productsAmt;
+	private int totalShippingPrice;
+	private int totalProductsPrice;
 	private PaymentMethod paymentMethod;
-	private int paymentAmt;
+	private int totalPrice;
 }
