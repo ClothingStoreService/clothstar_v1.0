@@ -9,13 +9,12 @@ import org.store.clothstar.member.dto.CreateMemberRequest;
 import org.store.clothstar.member.dto.MemberResponse;
 import org.store.clothstar.member.repository.MemberRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class MemberService {
 	private final MemberRepository memberRepository;
-
-	public MemberService(MemberRepository memberRepository) {
-		this.memberRepository = memberRepository;
-	}
 
 	public Member signup(CreateMemberRequest createMemberDTO) {
 		Member member = createMemberDTO.toMember();

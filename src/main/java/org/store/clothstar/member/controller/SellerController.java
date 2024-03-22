@@ -9,10 +9,10 @@ import org.store.clothstar.member.dto.CreateSellerRequest;
 import org.store.clothstar.member.dto.SellerResponse;
 import org.store.clothstar.member.service.SellerService;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class SellerController {
 	private final SellerService sellerService;
 

@@ -2,9 +2,13 @@ package org.store.clothstar.member.dto;
 
 import org.store.clothstar.member.domain.Address;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CreateAddressRequest {
 	private Long memberId;
 	private String receiverNm;

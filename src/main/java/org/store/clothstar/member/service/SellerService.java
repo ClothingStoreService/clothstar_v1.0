@@ -6,10 +6,10 @@ import org.store.clothstar.member.dto.CreateSellerRequest;
 import org.store.clothstar.member.dto.SellerResponse;
 import org.store.clothstar.member.repository.SellerRepository;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class SellerService {
 	private final SellerRepository sellerRepository;
 

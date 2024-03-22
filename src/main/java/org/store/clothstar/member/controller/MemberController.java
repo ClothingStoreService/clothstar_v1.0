@@ -12,13 +12,12 @@ import org.store.clothstar.member.dto.CreateMemberRequest;
 import org.store.clothstar.member.dto.MemberResponse;
 import org.store.clothstar.member.service.MemberService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
+@RequiredArgsConstructor
 public class MemberController {
 	private final MemberService memberService;
-
-	public MemberController(MemberService memberService) {
-		this.memberService = memberService;
-	}
 
 	@GetMapping("/v1/members")
 	public List<MemberResponse> getAllMember() {
