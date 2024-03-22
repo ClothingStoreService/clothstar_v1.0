@@ -1,6 +1,7 @@
 package org.store.clothstar.product.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.store.clothstar.product.dto.CreateProductRequest;
 import org.store.clothstar.product.dto.CreateProductResponse;
@@ -8,6 +9,7 @@ import org.store.clothstar.product.dto.ProductDetailResponse;
 import org.store.clothstar.product.dto.ProductListResponse;
 import org.store.clothstar.product.service.ProductService;
 
+import javax.validation.Valid;
 import java.awt.print.Pageable;
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public CreateProductResponse saveProduct(CreateProductRequest createProductRequest){
+    public CreateProductResponse saveProduct(@Validated @RequestBody CreateProductRequest createProductRequest){
         return productService.saveProduct(createProductRequest);
     }
 }
