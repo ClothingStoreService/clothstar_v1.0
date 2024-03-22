@@ -31,7 +31,7 @@ public class OrderService {
 	}
 
 	public CreateOrderRequest saveOrder(CreateOrderRequest createOrderRequest) {
-		orderRepository.saveOrder(createOrderRequest);
+		orderRepository.saveOrder(createOrderRequest.toOrder());
 		return createOrderRequest;
 	}
 }
