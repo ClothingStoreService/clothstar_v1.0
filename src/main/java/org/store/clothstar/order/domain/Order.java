@@ -13,12 +13,12 @@ public class Order {
 	private Long memberId;
 	private Long deliveryId;
 	private LocalDateTime createdDate;
-	private LocalDateTime createdTime;
+	private LocalDateTime createdAt;
 	private String status;
-	private int totalShippingPrice;
-	private int totalProductsPrice;
+	private int shippingAmt;
+	private int productsAmt;
 	private PaymentMethod paymentMethod;
-	private int totalPrice;
+	private int paymentAmt;
 
 	@Builder
 	public Order(
@@ -26,23 +26,23 @@ public class Order {
 		Long memberId,
 		Long deliveryId,
 		LocalDateTime createdDate,
-		LocalDateTime createdTime,
+		LocalDateTime createdAt,
 		String status,
-		int totalShippingPrice,
-		int totalProductsPrice,
+		int shippingAmt,
+		int productsAmt,
 		PaymentMethod paymentMethod,
-		int totalPrice
+		int paymentAmt
 	) {
 		this.orderId = orderId;
 		this.memberId = memberId;
 		this.deliveryId = deliveryId;
 		this.createdDate = createdDate;
-		this.createdTime = createdTime;
+		this.createdAt = createdAt;
 		this.status = status;
-		this.totalShippingPrice = totalShippingPrice;
-		this.totalProductsPrice = totalProductsPrice;
+		this.shippingAmt = shippingAmt;
+		this.productsAmt = productsAmt;
 		this.paymentMethod = paymentMethod;
-		this.totalPrice = totalPrice;
+		this.paymentAmt = paymentAmt;
 	}
 
 	public OrderResponse toOrderResponse(
@@ -50,24 +50,24 @@ public class Order {
 		Long memberId,
 		Long deliveryId,
 		LocalDateTime createdDate,
-		LocalDateTime createdTime,
+		LocalDateTime createdAt,
 		String status,
-		int totalShippingPrice,
-		int totalProductsPrice,
+		int shippingAmt,
+		int productsAmt,
 		PaymentMethod paymentMethod,
-		int totalPrice
+		int paymentAmt
 	) {
 		return new OrderResponse(
 			orderId = this.getOrderId(),
 			memberId = this.getMemberId(),
 			deliveryId = this.getDeliveryId(),
 			createdDate = this.getCreatedDate(),
-			createdTime = this.getCreatedTime(),
+			createdAt = this.getCreatedAt(),
 			status = this.getStatus(),
-			totalShippingPrice = this.getTotalShippingPrice(),
-			totalProductsPrice = this.getTotalProductsPrice(),
+			shippingAmt = this.getShippingAmt(),
+			productsAmt = this.getProductsAmt(),
 			paymentMethod = this.getPaymentMethod(),
-			totalPrice = this.getTotalPrice()
+			paymentAmt = this.getPaymentAmt()
 		);
 	}
 }

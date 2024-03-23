@@ -25,21 +25,21 @@ public class CreateOrderRequest {
 	private LocalDateTime createdDate;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-	private LocalDateTime createdTime;
+	private LocalDateTime createdAt;
 
 	private String status;
 
 	@NotNull
-	private int totalShippingPrice;
+	private int shippingAmt;
 
 	@NotNull
-	private int totalProductsPrice;
+	private int productsAmt;
 
 	@NotNull
 	private PaymentMethod paymentMethod;
 
 	@NotNull
-	private int totalPrice;
+	private int paymentAmt;
 
 	public Order toOrder() {
 		return Order.builder()
@@ -47,12 +47,12 @@ public class CreateOrderRequest {
 			.memberId(memberId)
 			.deliveryId(deliveryId)
 			.createdDate(createdDate)
-			.createdTime(createdTime)
+			.createdAt(createdAt)
 			.status(status)
-			.totalShippingPrice(totalShippingPrice)
-			.totalProductsPrice(totalProductsPrice)
+			.shippingAmt(shippingAmt)
+			.productsAmt(productsAmt)
 			.paymentMethod(paymentMethod)
-			.totalPrice(totalPrice)
+			.paymentAmt(paymentAmt)
 			.build();
 	}
 }

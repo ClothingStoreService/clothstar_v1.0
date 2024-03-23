@@ -12,7 +12,7 @@
         INSERT INTO orders(order_id, member_id, delivery_id, shipping_amt,
         products_amt, payment_method, payment_amt)
         VALUES(#{orderId}, #{memberId}, #{deliveryId},
-        #{totalShippingPrice}, #{totalProductsPrice}, #{paymentMethod},
-        #{totalPrice})
+        #{shippingAmt}, #{productsAmt}, #{paymentMethod},
+        #{paymentAmt})
     </insert>
 </mapper>
