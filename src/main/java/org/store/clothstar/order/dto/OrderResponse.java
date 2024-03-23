@@ -16,7 +16,7 @@ public class OrderResponse {
 	private Long orderId;
 	private Long memberId;
 	private Long deliveryId;
-	private String createdDate;
+	private LocalDateTime createdDate;
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private LocalDateTime createdTime;
 	private String status;

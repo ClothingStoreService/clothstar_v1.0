@@ -10,7 +10,7 @@ public class Order {
 	private Long orderId;
 	private Long memberId;
 	private Long deliveryId;
-	private String createdDate;
+	private LocalDateTime createdDate;
 	private LocalDateTime createdTime;
 	private String status;
 	private int totalShippingPrice;
@@ -23,7 +23,7 @@ public class Order {
 		Long orderId,
 		Long memberId,
 		Long deliveryId,
-		String createdDate,
+		LocalDateTime createdDate,
 		LocalDateTime createdTime,
 		String status,
 		int totalShippingPrice,

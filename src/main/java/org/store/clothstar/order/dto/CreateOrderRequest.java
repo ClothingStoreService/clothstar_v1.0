@@ -21,14 +21,12 @@ public class CreateOrderRequest {
 	@NotNull
 	private Long deliveryId;
 
-	@NotNull
-	private String createdDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+	private LocalDateTime createdDate;
 
-	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
 	private LocalDateTime createdTime;
 
-	@NotNull
 	private String status;
 
 	@NotNull
