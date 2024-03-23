@@ -9,10 +9,10 @@
     </select>
 
     <insert id="saveOrder" parameterType="org.store.clothstar.order.domain.Order">
-        INSERT INTO orders(order_id, member_id, delivery_id, shipping_amt,
-        products_amt, payment_method, payment_amt)
+        INSERT INTO orders(order_id, member_id, delivery_id, total_shipping_price,
+        total_products_price, payment_method, total_payment_price)
         VALUES(#{orderId}, #{memberId}, #{deliveryId},
-        #{shippingAmt}, #{productsAmt}, #{paymentMethod},
-        #{paymentAmt})
+        #{totalShippingPrice}, #{totalProductsPrice}, #{paymentMethod},
+        #{totalPaymentPrice})
     </insert>
 </mapper>

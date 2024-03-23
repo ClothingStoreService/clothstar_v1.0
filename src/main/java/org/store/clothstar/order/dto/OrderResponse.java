@@ -13,11 +13,10 @@ public class OrderResponse {
 	private Long orderId;
 	private Long memberId;
 	private Long deliveryId;
-	private LocalDateTime createdDate;
 	private LocalDateTime createdAt;
 	private String status;
-	private int shippingAmt;
-	private int productsAmt;
+	private int totalShippingPrice;
+	private int totalProductsPrice;
 	private PaymentMethod paymentMethod;
-	private int paymentAmt;
+	private int totalPaymentPrice;
 }

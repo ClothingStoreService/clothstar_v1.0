@@ -20,13 +20,12 @@ public class OrderService {
 			order.getOrderId(),
 			order.getMemberId(),
 			order.getDeliveryId(),
-			order.getCreatedDate(),
 			order.getCreatedAt(),
 			order.getStatus(),
-			order.getShippingAmt(),
-			order.getProductsAmt(),
+			order.getTotalShippingPrice(),
+			order.getTotalProductsPrice(),
 			order.getPaymentMethod(),
-			order.getPaymentAmt()
+			order.getTotalPaymentPrice()
 		);
 	}
 

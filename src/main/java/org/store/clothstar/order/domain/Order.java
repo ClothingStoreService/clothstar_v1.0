@@ -12,62 +12,57 @@ public class Order {
 	private Long orderId;
 	private Long memberId;
 	private Long deliveryId;
-	private LocalDateTime createdDate;
 	private LocalDateTime createdAt;
 	private String status;
-	private int shippingAmt;
-	private int productsAmt;
+	private int totalShippingPrice;
+	private int totalProductsPrice;
 	private PaymentMethod paymentMethod;
-	private int paymentAmt;
+	private int totalPaymentPrice;
 
 	@Builder
 	public Order(
 		Long orderId,
 		Long memberId,
 		Long deliveryId,
-		LocalDateTime createdDate,
 		LocalDateTime createdAt,
 		String status,
-		int shippingAmt,
-		int productsAmt,
+		int totalShippingPrice,
+		int totalProductsPrice,
 		PaymentMethod paymentMethod,
-		int paymentAmt
+		int totalPaymentPrice
 	) {
 		this.orderId = orderId;
 		this.memberId = memberId;
 		this.deliveryId = deliveryId;
-		this.createdDate = createdDate;
 		this.createdAt = createdAt;
 		this.status = status;
-		this.shippingAmt = shippingAmt;
-		this.productsAmt = productsAmt;
+		this.totalShippingPrice = totalShippingPrice;
+		this.totalProductsPrice = totalProductsPrice;
 		this.paymentMethod = paymentMethod;
-		this.paymentAmt = paymentAmt;
+		this.totalPaymentPrice = totalPaymentPrice;
 	}
 
 	public OrderResponse toOrderResponse(
 		Long orderId,
 		Long memberId,
 		Long deliveryId,
-		LocalDateTime createdDate,
 		LocalDateTime createdAt,
 		String status,
-		int shippingAmt,
-		int productsAmt,
+		int totalShippingPrice,
+		int totalProductsPrice,
 		PaymentMethod paymentMethod,
-		int paymentAmt
+		int totalPaymentPrice
 	) {
 		return new OrderResponse(
 			orderId = this.getOrderId(),
 			memberId = this.getMemberId(),
 			deliveryId = this.getDeliveryId(),
-			createdDate = this.getCreatedDate(),
 			createdAt = this.getCreatedAt(),
 			status = this.getStatus(),
-			shippingAmt = this.getShippingAmt(),
-			productsAmt = this.getProductsAmt(),
+			totalShippingPrice = this.getTotalShippingPrice(),
+			totalProductsPrice = this.getTotalProductsPrice(),
 			paymentMethod = this.getPaymentMethod(),
-			paymentAmt = this.getPaymentAmt()
+			totalPaymentPrice = this.getTotalPaymentPrice()
 		);
 	}
 }
