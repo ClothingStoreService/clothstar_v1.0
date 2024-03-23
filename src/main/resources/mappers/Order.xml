@@ -5,15 +5,14 @@
 
 <mapper namespace="org.store.clothstar.order.repository.OrderRepository">
     <select id="getOrder" resultType="org.store.clothstar.order.domain.Order">
-        select * from orderline where order_id = #{orderId}
+        select * from order where order_id = #{orderId}
     </select>
 
     <insert id="saveOrder" parameterType="org.store.clothstar.order.domain.Order">
-        INSERT INTO orderline (order_id, member_id, delivery_id, created_dt, created_at, status, shipping_amt,
-        products_amt,
-        payment_method, payment_amt)
-        VALUES (#{orderId}, #{memberId}, #{deliveryId}, #{createdDate}, #{createdTime}, #{status},
-        #{totalShippingPrice},
-        #{totalProductsPrice}, #{paymentMethod}, #{totalPrice});
+        INSERT INTO orders(order_id, member_id, delivery_id, shipping_amt,
+        products_amt, payment_method, payment_amt)
+        VALUES(#{orderId}, #{memberId}, #{deliveryId},
+        #{totalShippingPrice}, #{totalProductsPrice}, #{paymentMethod},
+        #{totalPrice})
     </insert>
 </mapper>
