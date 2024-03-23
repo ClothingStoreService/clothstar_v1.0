@@ -16,7 +16,7 @@ public class OrderService {
 
 	public OrderResponse getOrder(Long orderId) {
 		Order order = orderRepository.getOrder(orderId);
-		OrderResponse orderResponse = new OrderResponse(
+		return order.toOrderResponse(
 			order.getOrderId(),
 			order.getMemberId(),
 			order.getDeliveryId(),
@@ -26,8 +26,8 @@ public class OrderService {
 			order.getTotalShippingPrice(),
 			order.getTotalProductsPrice(),
 			order.getPaymentMethod(),
-			order.getTotalPrice());
-		return orderResponse;
+			order.getTotalPrice()
+		);
 	}
 
 	public CreateOrderRequest saveOrder(CreateOrderRequest createOrderRequest) {
