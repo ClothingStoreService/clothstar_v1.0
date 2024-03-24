@@ -32,7 +32,7 @@ public class ProductService {
         return ProductDetailResponse.from(product);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public CreateProductResponse createProduct(CreateProductRequest createProductRequest) {
         Product product = createProductRequest.toProduct();
         productRepository.save(product);

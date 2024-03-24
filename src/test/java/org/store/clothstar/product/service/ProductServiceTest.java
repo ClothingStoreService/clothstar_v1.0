@@ -1,13 +1,16 @@
 package org.store.clothstar.product.service;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.store.clothstar.product.domain.Product;
 import org.store.clothstar.product.domain.type.ProductStatus;
 import org.store.clothstar.product.dto.ProductDetailResponse;
@@ -17,14 +20,12 @@ import org.store.clothstar.product.repository.ProductRepository;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyLong;
 
 @DisplayName("비즈니스 로직 - Product")
+@ActiveProfiles("dev")
 @ExtendWith(MockitoExtension.class)
 class ProductServiceTest {
 
@@ -60,10 +61,9 @@ class ProductServiceTest {
         assertThat(response.getProductStatus()).isEqualTo(ProductStatus.COMING_SOON);
     }
 
-    @Disabled
-    @DisplayName("deleted_at이 null이 아닌 상품 리스트 조회에 성공한다.")
+    @DisplayName("deleted_at이 null인 상품 리스트 조회에 성공한다.")
     @Test
-    public void givenProductId_whenG_thenProductReturned() {
+    public void givenProducts_whenGetProducsList_thenGetProductsWhereDeletedAtIsNull() {
         // given
         List<Product> products = new ArrayList<>();
         Product product1 = Product.builder()
@@ -81,7 +81,7 @@ class ProductServiceTest {
                 .status(ProductStatus.FOR_SALE)
                 .build();
         Product product3 = Product.builder()
-                .productId(2L)
+                .productId(3L)
                 .name("오구 볼펜")
                 .price(7900)
                 .stock(0)
@@ -98,8 +98,9 @@ class ProductServiceTest {
         List<ProductResponse> response = productService.getAllProduct();
 
         // then
+        Mockito.verify(productRepository, Mockito.times(1)).selectAllProductsNotDeleted();
         assertThat(response).isNotNull();
-        assertThat(response.size()).isEqualTo(2); // deleted_at이 null이 아닌 경우는 제외되어야 하므로 크기는 2이어야 함
+        assertThat(response.size()).isEqualTo(3);
         assertThat(response.get(0).getName()).isEqualTo(product1.getName());
         assertThat(response.get(0).getPrice()).isEqualTo(product1.getPrice());
         assertThat(response.get(0).getStock()).isEqualTo(product1.getStock());
@@ -111,6 +112,4 @@ class ProductServiceTest {
     public void givenValidCreateProductRequest_whenCreateProduct_thenProductCreated() {
 
     }
-
-
 }

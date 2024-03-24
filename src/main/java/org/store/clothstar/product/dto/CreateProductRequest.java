@@ -16,7 +16,6 @@ public class CreateProductRequest {
     @NotBlank(message = "상품 이름을 입력해주세요.")
     private String name;
 
-    @NotBlank(message = "상품 가격을 입력해주세요.")
     @Positive(message = "상품 가격은 0보다 커야 합니다.")
     private int price;
 

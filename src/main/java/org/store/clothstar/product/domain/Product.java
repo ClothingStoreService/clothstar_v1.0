@@ -6,8 +6,7 @@ import org.store.clothstar.product.domain.type.ProductStatus;
 import java.time.LocalDateTime;
 
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
 public class Product {
     private Long productId;
     private Long sellerId;
@@ -19,12 +18,4 @@ public class Product {
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
     private LocalDateTime deletedAt;
-
-    @Builder
-    public Product(String name, int price, int stock, ProductStatus status) {
-        this.name = name;
-        this.price = price;
-        this.stock = stock;
-        this.status = status;
-    }
 }
