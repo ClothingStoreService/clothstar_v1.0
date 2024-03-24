@@ -1,29 +1,36 @@
 package org.store.clothstar.member.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.store.clothstar.member.dto.MemberDTO;
+import org.store.clothstar.member.domain.Member;
+import org.store.clothstar.member.dto.CreateMemberRequest;
+import org.store.clothstar.member.dto.MemberResponse;
 import org.store.clothstar.member.service.MemberService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
+@RequiredArgsConstructor
 public class MemberController {
 	private final MemberService memberService;
 
-	@Autowired
-	public MemberController(MemberService memberService) {
-		this.memberService = memberService;
-	}
-
-	@PostMapping("/v1/members")
-	public MemberDTO signup(MemberDTO memberDTO) {
-		return memberService.save(memberDTO);
+	@GetMapping("/v1/members")
+	public List<MemberResponse> getAllMember() {
+		return memberService.getAllMember();
 	}
 
 	@GetMapping("/v1/members/{id}")
-	public MemberDTO getMember(@PathVariable Long id) {
-		return memberService.findById(id);
+	public MemberResponse getMember(@PathVariable("id") Long memberId) {
+		return memberService.getMemberById(memberId);
+	}
+
+	@PostMapping("/v1/members")
+	public Member signup(@RequestBody CreateMemberRequest createMemberDTO) {
+		return memberService.signup(createMemberDTO);
 	}
 }
