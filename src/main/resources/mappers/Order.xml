@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.store.clothstar.order.repository.OrderRepository">
+    <select id="getOrder" resultType="org.store.clothstar.order.domain.Order">
+        select * from order where order_id = #{orderId}
+    </select>
+
+    <insert id="saveOrder" parameterType="org.store.clothstar.order.domain.Order">
+        INSERT INTO orders(order_id, member_id, delivery_id, total_shipping_price,
+        total_products_price, payment_method, total_payment_price)
+        VALUES(#{orderId}, #{memberId}, #{deliveryId},
+        #{totalShippingPrice}, #{totalProductsPrice}, #{paymentMethod},
+        #{totalPaymentPrice})
+    </insert>
+</mapper>
