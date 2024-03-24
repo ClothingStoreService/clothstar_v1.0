@@ -8,6 +8,7 @@ import org.store.clothstar.product.domain.type.ProductStatus;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
+import java.time.LocalDateTime;
 
 @Getter
 @Builder
@@ -32,6 +33,7 @@ public class CreateProductRequest {
                 .price(price)
                 .stock(stock)
                 .status(status)
+                .createdAt(LocalDateTime.now())
                 .build();
     }
 }
