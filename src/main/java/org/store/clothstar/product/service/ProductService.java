@@ -33,9 +33,9 @@ public class ProductService {
     }
 
     @Transactional
-    public CreateProductResponse createProduct(CreateProductRequest createProductRequest) {
+    public Long createProduct(CreateProductRequest createProductRequest) {
         Product product = createProductRequest.toProduct();
         productRepository.save(product);
-        return CreateProductResponse.from(product);
+        return product.getProductId();
     }
 }

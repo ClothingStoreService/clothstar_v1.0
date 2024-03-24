@@ -14,8 +14,9 @@
         FROM product WHERE product_id = #{producId}
     </select>
     <insert id="save"
-            parameterType="org.store.clothstar.product.domain.Product">
-        INSERT INTO product(product_id, member_id, category_id, name, price, stock, status)
-        VALUES (#{productId}, #{sellerId}, #{categoryId}, #{name}, #{price}, #{stock}, #{status})
+            parameterType="org.store.clothstar.product.domain.Product"
+            useGeneratedKeys="true" keyProperty="productId" keyColumn="product_id">
+        INSERT INTO product(product_id, member_id, category_id, name, price, stock, status, created_at)
+        VALUES (#{productId}, #{sellerId}, #{categoryId}, #{name}, #{price}, #{stock}, #{status}, #{createdAt})
     </insert>
 </mapper>
