@@ -8,7 +8,8 @@
         select * from address where member_id = #{memberId};
     </select>
 
-    <insert id="save" parameterType="org.store.clothstar.member.domain.Address">
+    <insert id="save" parameterType="org.store.clothstar.member.domain.Address"
+            useGeneratedKeys="true" keyProperty="addressId" keyColumn="address_id">
         insert into address (
         member_id, receiver_name, zip_no, address_basic, address_detail, tel_no, delivery_request, default_address
         ) values (
