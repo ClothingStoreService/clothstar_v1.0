@@ -16,20 +16,3 @@ CREATE TABLE `product` (
                            `deleted_at`	DATETIME,
                            constraint pk_product primary key (product_id)
 );
-
-CREATE TABLE `cateory` (
-                           `category_id`	BIGINT	NOT NULL AUTO_INCREMENT,
-                           `name`	varchar(20)	NOT NULL,
-                           constraint pk_category primary key (category_id)
-);
-
-CREATE TABLE `option` (
-                          `option_id`	BIGINT	NOT NULL AUTO_INCREMENT,
-                          `product_id`	BIGINT	,
-                          `order_detail_id`	BIGINT	,
-                          `name`	varchar(20)	NOT NULL,
-                          `value`	varchar(20)	NOT NULL,
-                          constraint pk_option primary key (option_id)
-);
-
-select * from product
