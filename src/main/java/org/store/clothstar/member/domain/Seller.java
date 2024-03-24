@@ -9,9 +9,9 @@ import lombok.Getter;
 @Builder
 public class Seller {
 	private Long memberId;
-	private String brandNm;
+	private String brandName;
 	private String bizNo;
-	private int sellAmt;
+	private int totalSellPrice;
 	private String authority;
 	private LocalDateTime createdAt;
 }

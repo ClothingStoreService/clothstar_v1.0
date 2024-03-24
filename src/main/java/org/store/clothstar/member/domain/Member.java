@@ -13,7 +13,7 @@ public class Member {
 	private String password;
 	private String name;
 	private String telNo;
-	private int buyAmt;
+	private int totalPaymentPrice;
 	private MemberRole role;
 	private MemberGrade grade;
 	private LocalDateTime createdAt;

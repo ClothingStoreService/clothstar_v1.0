@@ -16,8 +16,10 @@
         select * from member where email = #{email}
     </select>
 
-    <insert id="save" parameterType="org.store.clothstar.member.domain.Member">
-        insert into member(email, password, name, tel_no)
-        values(#{email}, #{password}, #{name}, #{telNo})
+    <insert id="save" parameterType="org.store.clothstar.member.domain.Member"
+            useGeneratedKeys="true" keyProperty="memberId" keyColumn="member_id">
+        
+        insert into member(email, password, name, tel_no, total_payment_price, role, grade, created_at)
+        values(#{email}, #{password}, #{name}, #{telNo}, #{totalPaymentPrice}, #{role}, #{grade}, #{createdAt})
     </insert>
 </mapper>

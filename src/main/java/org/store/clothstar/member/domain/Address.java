@@ -8,11 +8,11 @@ import lombok.Getter;
 public class Address {
 	private Long addressId;
 	private Long memberId;
-	private String receiverNm;
+	private String receiverName;
 	private String zipNo;
-	private String address1;
-	private String address2;
+	private String addressBasic;
+	private String addressDetail;
 	private String telNo;
-	private String deliveryReq;
-	private int isDefault;
+	private String deliveryRequest;
+	private boolean defaultAddress;
 }

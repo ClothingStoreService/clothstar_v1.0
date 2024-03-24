@@ -7,22 +7,22 @@ import lombok.Getter;
 @Getter
 public class AddressResponse {
 	private Long memberId;
-	private String receiverNm;
+	private String receiverName;
 	private String zipNo;
-	private String address1;
-	private String address2;
+	private String addressBasic;
+	private String addressDetail;
 	private String telNo;
-	private String deliveryReq;
-	private int isDefault;
+	private String deliveryRequest;
+	private boolean defaultAddress;
 
 	public AddressResponse(Address address) {
 		this.memberId = address.getMemberId();
-		this.receiverNm = address.getReceiverNm();
+		this.receiverName = address.getReceiverName();
 		this.zipNo = address.getZipNo();
-		this.address1 = address.getAddress1();
-		this.address2 = address.getAddress2();
+		this.addressBasic = address.getAddressBasic();
+		this.addressDetail = address.getAddressDetail();
 		this.telNo = address.getTelNo();
-		this.deliveryReq = address.getDeliveryReq();
-		this.isDefault = address.getIsDefault();
+		this.deliveryRequest = address.getDeliveryRequest();
+		this.defaultAddress = address.isDefaultAddress();
 	}
 }

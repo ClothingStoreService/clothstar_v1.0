@@ -7,7 +7,7 @@ import org.store.clothstar.member.domain.Address;
 
 @Mapper
 public interface AddressRepository {
-	List<Address> findAllMemberAddress(Long memberId);
+	List<Address> findMemberAddress(Long memberId);
 
 	public int save(Address address);
 }

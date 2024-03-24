@@ -27,9 +27,12 @@ public class AddressController {
 		return addressService.getAllMemberAddress(memberId);
 	}
 
+	@Operation(description = "회원 한명에 대한 배송지를 전부 가져오는 api")
 	@PostMapping("/v1/members/{id}/address")
-	public AddressResponse addrSave(@PathVariable("id") Long memberId,
+	public AddressResponse addrSave(
+		@PathVariable("id") Long memberId,
 		@RequestBody CreateAddressRequest createAddressRequest) {
+
 		return addressService.addrSave(memberId, createAddressRequest);
 	}
 }

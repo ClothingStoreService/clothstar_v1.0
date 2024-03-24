@@ -9,16 +9,15 @@ import org.store.clothstar.member.dto.AddressResponse;
 import org.store.clothstar.member.dto.CreateAddressRequest;
 import org.store.clothstar.member.repository.AddressRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class AddressService {
 	private final AddressRepository addressInfoRepository;
 
-	public AddressService(AddressRepository addressInfoRepository) {
-		this.addressInfoRepository = addressInfoRepository;
-	}
-
 	public List<AddressResponse> getAllMemberAddress(Long memberId) {
-		List<Address> memberAddressList = addressInfoRepository.findAllMemberAddress(memberId);
+		List<Address> memberAddressList = addressInfoRepository.findMemberAddress(memberId);
 
 		List<AddressResponse> memberAddressResponseList = memberAddressList.stream()
 			.map(AddressResponse::new)
@@ -29,8 +28,8 @@ public class AddressService {
 
 	public AddressResponse addrSave(Long memberId, CreateAddressRequest createAddressRequest) {
 		Address address = createAddressRequest.toAddress(memberId);
-		System.out.println("address = " + address);
 		addressInfoRepository.save(address);
+
 		return new AddressResponse(address);
 	}
 }

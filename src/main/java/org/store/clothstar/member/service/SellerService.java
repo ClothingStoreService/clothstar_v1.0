@@ -15,12 +15,14 @@ public class SellerService {
 
 	public SellerResponse getSellerById(Long memberId) {
 		Seller seller = sellerRepository.findById(memberId);
+
 		return new SellerResponse(seller);
 	}
 
-	public SellerResponse sellerSave(CreateSellerRequest createSellerRequest, Long memberId) {
+	public SellerResponse sellerSave(Long memberId, CreateSellerRequest createSellerRequest) {
 		Seller seller = createSellerRequest.toSeller(memberId);
 		sellerRepository.save(seller);
+
 		return new SellerResponse(seller);
 	}
 }

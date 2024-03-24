@@ -22,8 +22,10 @@ public class SellerController {
 	}
 
 	@PostMapping("/v1/sellers/{id}")
-	public SellerResponse saveSeller(@RequestBody CreateSellerRequest createSellerRequest,
+	public SellerResponse saveSeller(
+		@RequestBody CreateSellerRequest createSellerRequest,
 		@PathVariable("id") Long memberId) {
-		return sellerService.sellerSave(createSellerRequest, memberId);
+
+		return sellerService.sellerSave(memberId, createSellerRequest);
 	}
 }

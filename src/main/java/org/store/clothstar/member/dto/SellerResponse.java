@@ -9,16 +9,16 @@ import lombok.Getter;
 @Getter
 public class SellerResponse {
 	private Long memberId;
-	private String brandNm;
+	private String brandName;
 	private String bizNo;
-	private int sellAmt;
+	private int totalPaymentPrice;
 	private LocalDateTime createdAt;
 
 	public SellerResponse(Seller seller) {
 		this.memberId = seller.getMemberId();
-		this.brandNm = seller.getBrandNm();
+		this.brandName = seller.getBrandName();
 		this.bizNo = seller.getBizNo();
-		this.sellAmt = seller.getSellAmt();
+		this.totalPaymentPrice = seller.getTotalSellPrice();
 		this.createdAt = seller.getCreatedAt();
 	}
 }

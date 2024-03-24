@@ -9,7 +9,10 @@
     </select>
 
     <insert id="save" parameterType="org.store.clothstar.member.domain.Address">
-        insert into address(member_id, receiver_nm, zip_no, address1, address2, tel_no, delivery_req, is_default)
-        values (#{memberId}, #{receiverNm}, #{zipNo}, #{address1}, #{address2}, #{telNo}, #{deliveryReq}, #{isDefault});
+        insert into address (
+        member_id, receiver_name, zip_no, address_basic, address_detail, tel_no, delivery_request, default_address
+        ) values (
+        #{memberId}, #{receiverName}, #{zipNo}, #{addressBasic}, #{addressDetail}, #{telNo}, #{deliveryRequest},
+        #{defaultAddress});
     </insert>
 </mapper>

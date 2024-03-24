@@ -10,25 +10,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateAddressRequest {
-	private Long memberId;
-	private String receiverNm;
+	private String receiverName;
 	private String zipNo;
-	private String address1;
-	private String address2;
+	private String addressBasic;
+	private String addressDetail;
 	private String telNo;
-	private String deliveryReq;
-	private int isDefault;
+	private String deliveryRequest;
+	private boolean defaultAddress;
 
 	public Address toAddress(Long memberId) {
 		return Address.builder()
 			.memberId(memberId)
-			.receiverNm(receiverNm)
+			.receiverName(receiverName)
 			.zipNo(zipNo)
-			.address1(address1)
-			.address2(address2)
+			.addressBasic(addressBasic)
+			.addressDetail(addressDetail)
 			.telNo(telNo)
-			.deliveryReq(deliveryReq)
-			.isDefault(isDefault)
+			.deliveryRequest(deliveryRequest)
+			.defaultAddress(defaultAddress)
 			.build();
 	}
 }

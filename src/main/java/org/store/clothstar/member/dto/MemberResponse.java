@@ -15,7 +15,7 @@ public class MemberResponse {
 	private String password;
 	private String name;
 	private String telNo;
-	private int buyAmt;
+	private int totalPaymentPrice;
 	private MemberRole role;
 	private MemberGrade grade;
 	private LocalDateTime createdAt;
@@ -26,7 +26,7 @@ public class MemberResponse {
 		this.password = member.getPassword();
 		this.name = member.getName();
 		this.telNo = member.getTelNo();
-		this.buyAmt = member.getBuyAmt();
+		this.totalPaymentPrice = member.getTotalPaymentPrice();
 		this.role = member.getRole();
 		this.grade = member.getGrade();
 		this.createdAt = member.getCreatedAt();

@@ -1,35 +1,35 @@
-DROP TABLE IF EXISTS `member`;
-
 CREATE TABLE `member`
 (
-    `member_id`   BIGINT       NOT NULL AUTO_INCREMENT,
-    `email`       varchar(255) NOT NULL,
-    `password`    varchar(255) NOT NULL,
-    `name`        varchar(255) NOT NULL,
-    `tel_no`      varchar(255) NOT NULL,
-    `buy_amt`     INT          NULL     default 0,
-    `role`        varchar(100) NOT NULL DEFAULT 'USER' COMMENT 'ADMIN, SELLER, USER',
-    `grade`       varchar(100) NOT NULL DEFAULT 'BRONZE' COMMENT 'BRONZE, SILVER, GOLD, PLATINUM, DIAMOND',
-    `created_at`  datetime     NOT NULL DEFAULT now(),
-    `modified_at` datetime     NULL,
-    `deleted_at`  datetime     NULL,
+    `member_id`           BIGINT       NOT NULL auto_increment,
+    `email`               varchar(255) NOT NULL,
+    `password`            varchar(255) NOT NULL,
+    `name`                varchar(255) NOT NULL,
+    `tel_no`              varchar(255) NOT NULL,
+    `total_payment_price` INT          NULL,
+    `role`                varchar(100) NOT NULL COMMENT 'ADMIN, SELLER, USER',
+    `grade`               varchar(100) NOT NULL COMMENT 'BRONZE, SILVER, GOLD, PLATINUM, DIAMOND',
+    `created_at`          timestamp    NOT NULL,
+    `modified_at`         timestamp    NULL,
+    `deleted_at`          timestamp    NULL,
 
     CONSTRAINT PK_MEMBER PRIMARY KEY (member_id)
 );
+
+DROP TABLE IF EXISTS `member`;
 
 DROP TABLE IF EXISTS `address`;
 
 CREATE TABLE `address`
 (
-    `address_id`   BIGINT       NOT NULL NOT NULL AUTO_INCREMENT,
-    `member_id`    BIGINT       NOT NULL,
-    `receiver_nm`  varchar(255) NULL,
-    `zip_no`       varchar(255) NOT NULL,
-    `address1`     varchar(255) NOT NULL,
-    `address2`     varchar(255) NOT NULL,
-    `tel_no`       varchar(255) NOT NULL,
-    `delivery_req` varchar(255) NULL,
-    `is_default`   boolean      NOT NULL DEFAULT false,
+    `address_id`       BIGINT       NOT NULL auto_increment,
+    `member_id`        BIGINT       NOT NULL,
+    `receiver_name`    varchar(255) NULL,
+    `zip_no`           varchar(255) NOT NULL,
+    `address_basic`    varchar(255) NOT NULL,
+    `address_detail`   varchar(255) NOT NULL,
+    `tel_no`           varchar(255) NOT NULL,
+    `delivery_request` varchar(255) NULL,
+    `default_address`  boolean      NOT NULL DEFAULT 0,
 
     CONSTRAINT PK_ADDRESS PRIMARY KEY (address_id)
 );
@@ -38,18 +38,17 @@ DROP TABLE IF EXISTS `seller`;
 
 CREATE TABLE `seller`
 (
-    `member_id`  BIGINT       NOT NULL,
-    `brand_nm`   varchar(255) NOT NULL,
-    `biz_no`     varchar(255) NULL,
-    `sell_amt`   int          NULL     DEFAULT 0,
-    `authority`  varchar(255) NULL,
-    `created_at` datetime     NOT NULL DEFAULT now()
+    `member_id`        BIGINT       NOT NULL,
+    `brand_name`       varchar(255) NOT NULL,
+    `biz_no`           varchar(255) NULL,
+    `total_sell_price` int          NULL,
+    `authority`        varchar(255) NULL,
+    `created_at`       timestamp    NOT NULL
 );
-
-insert into seller(member_id, brand_nm, biz_no)
-values (1, '아이다스', 'ad');
 
 select *
 from member;
 select *
 from address;
+select *
+from seller;

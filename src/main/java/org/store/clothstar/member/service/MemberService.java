@@ -34,12 +34,13 @@ public class MemberService {
 
 	public MemberResponse getMemberById(Long memberId) {
 		Member member = memberRepository.findById(memberId);
+
 		return new MemberResponse(member);
 	}
 
 	public MemberResponse getMemberByEmail(String email) {
 		Member member = memberRepository.findByEmail(email);
+
 		return new MemberResponse(member);
 	}
-
 }
