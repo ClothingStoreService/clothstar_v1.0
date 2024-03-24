@@ -8,11 +8,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.store.clothstar.product.domain.Product;
 import org.store.clothstar.product.domain.type.ProductStatus;
+import org.store.clothstar.product.dto.CreateProductRequest;
+import org.store.clothstar.product.dto.CreateProductResponse;
 import org.store.clothstar.product.dto.ProductDetailResponse;
 import org.store.clothstar.product.dto.ProductResponse;
 import org.store.clothstar.product.repository.ProductRepository;
@@ -61,9 +61,9 @@ class ProductServiceTest {
         assertThat(response.getProductStatus()).isEqualTo(ProductStatus.COMING_SOON);
     }
 
-    @DisplayName("deleted_at이 null인 상품 리스트 조회에 성공한다.")
+    @DisplayName("상품 리스트 조회에 성공한다.")
     @Test
-    public void givenProducts_whenGetProducsList_thenGetProductsWhereDeletedAtIsNull() {
+    public void givenProducts_whenGetProducsList_thenGetProducts() {
         // given
         List<Product> products = new ArrayList<>();
         Product product1 = Product.builder()
@@ -86,7 +86,6 @@ class ProductServiceTest {
                 .price(7900)
                 .stock(0)
                 .status(ProductStatus.SOLD_OUT)
-                .deletedAt(LocalDateTime.now()) // deleted_at이 null이 아닌 경우
                 .build();
         products.add(product1);
         products.add(product2);
@@ -98,7 +97,8 @@ class ProductServiceTest {
         List<ProductResponse> response = productService.getAllProduct();
 
         // then
-        Mockito.verify(productRepository, Mockito.times(1)).selectAllProductsNotDeleted();
+        Mockito.verify(productRepository, Mockito.times(1))
+                .selectAllProductsNotDeleted();
         assertThat(response).isNotNull();
         assertThat(response.size()).isEqualTo(3);
         assertThat(response.get(0).getName()).isEqualTo(product1.getName());
@@ -110,6 +110,27 @@ class ProductServiceTest {
     @DisplayName("유요한 상품 생성 Request가 들어오면 상품 생성에 성공한다.")
     @Test
     public void givenValidCreateProductRequest_whenCreateProduct_thenProductCreated() {
+        // given
+        Long productId = 1L;
+        CreateProductRequest createProductRequest = CreateProductRequest.builder()
+                .name("체크 체리 잠옷")
+                .price(19000)
+                .stock(120)
+                .status(ProductStatus.ON_SALE)
+                .build();
 
+        BDDMockito.given(productRepository.save(Mockito.any(Product.class))).willReturn(productId);
+
+        // when
+        CreateProductResponse response = productService.createProduct(createProductRequest);
+
+        // then
+        Mockito.verify(productRepository, Mockito.times(1))
+                .save(Mockito.any(Product.class));
+        assertThat(response).isNotNull();
+        assertThat(response.getName()).isEqualTo("체크 체리 잠옷");
+        assertThat(response.getPrice()).isEqualTo(19000);
+        assertThat(response.getStock()).isEqualTo(120);
+        assertThat(response.getProductStatus()).isEqualTo(ProductStatus.ON_SALE);
     }
 }
