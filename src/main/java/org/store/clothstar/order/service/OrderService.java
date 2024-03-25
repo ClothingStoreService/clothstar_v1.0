@@ -3,6 +3,7 @@ package org.store.clothstar.order.service;
 import org.springframework.stereotype.Service;
 import org.store.clothstar.order.domain.Order;
 import org.store.clothstar.order.dto.CreateOrderRequest;
+import org.store.clothstar.order.dto.CreateOrderResponse;
 import org.store.clothstar.order.dto.OrderResponse;
 import org.store.clothstar.order.repository.OrderRepository;
 
@@ -29,8 +30,19 @@ public class OrderService {
 		);
 	}
 
-	public CreateOrderRequest saveOrder(CreateOrderRequest createOrderRequest) {
-		orderRepository.saveOrder(createOrderRequest.toOrder());
-		return createOrderRequest;
+	public CreateOrderResponse saveOrder(CreateOrderRequest createOrderRequest) {
+		Order order = createOrderRequest.toOrder();
+		orderRepository.saveOrder(order);
+		return order.toCreateOrderResponse(
+			order.getOrderId(),
+			order.getMemberId(),
+			order.getDeliveryId(),
+			order.getCreatedAt(),
+			order.getStatus(),
+			order.getTotalShippingPrice(),
+			order.getTotalProductsPrice(),
+			order.getPaymentMethod(),
+			order.getTotalPaymentPrice()
+		);
 	}
 }

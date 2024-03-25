@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.store.clothstar.order.dto.CreateOrderRequest;
+import org.store.clothstar.order.dto.CreateOrderResponse;
 import org.store.clothstar.order.dto.OrderResponse;
 import org.store.clothstar.order.service.OrderService;
 
@@ -24,7 +25,7 @@ public class OrderController {
 	}
 
 	@PostMapping("/v1/orders")
-	public CreateOrderRequest saveOrder(@RequestBody @Validated CreateOrderRequest createOrderRequest) {
+	public CreateOrderResponse saveOrder(@RequestBody @Validated CreateOrderRequest createOrderRequest) {
 		return orderService.saveOrder(createOrderRequest);
 	}
 }

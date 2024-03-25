@@ -2,9 +2,6 @@ package org.store.clothstar.order.dto;
 
 import java.time.LocalDateTime;
 
-import javax.validation.constraints.NotNull;
-
-import org.store.clothstar.order.domain.Order;
 import org.store.clothstar.order.domain.PaymentMethod;
 import org.store.clothstar.order.domain.Status;
 
@@ -13,22 +10,22 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class CreateOrderRequest {
-
+public class CreateOrderResponse {
 	private Long orderId;
 	private Long memberId;
 	private Long deliveryId;
+	LocalDateTime createdAt;
 	private Status status;
 	private int totalShippingPrice;
 	private int totalProductsPrice;
-	@NotNull
 	private PaymentMethod paymentMethod;
 	private int totalPaymentPrice;
 
-	public CreateOrderRequest(
+	public CreateOrderResponse(
 		Long orderId,
 		Long memberId,
 		Long deliveryId,
+		LocalDateTime createdAt,
 		Status status,
 		int totalShippingPrice,
 		int totalProductsPrice,
@@ -38,24 +35,11 @@ public class CreateOrderRequest {
 		this.orderId = orderId;
 		this.memberId = memberId;
 		this.deliveryId = deliveryId;
+		this.createdAt = createdAt;
 		this.status = status;
 		this.totalShippingPrice = totalShippingPrice;
 		this.totalProductsPrice = totalProductsPrice;
 		this.paymentMethod = paymentMethod;
 		this.totalPaymentPrice = totalPaymentPrice;
-	}
-
-	public Order toOrder() {
-		return Order.builder()
-			.orderId(orderId)
-			.memberId(memberId)
-			.deliveryId(deliveryId)
-			.createdAt(LocalDateTime.now())
-			.status(status)
-			.totalShippingPrice(totalShippingPrice)
-			.totalProductsPrice(totalProductsPrice)
-			.paymentMethod(paymentMethod)
-			.totalPaymentPrice(totalPaymentPrice)
-			.build();
 	}
 }
