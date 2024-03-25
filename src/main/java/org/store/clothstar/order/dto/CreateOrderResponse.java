@@ -13,7 +13,7 @@ import lombok.Getter;
 public class CreateOrderResponse {
 	private Long orderId;
 	private Long memberId;
-	private Long deliveryId;
+	private Long addressId;
 	LocalDateTime createdAt;
 	private Status status;
 	private int totalShippingPrice;
@@ -24,7 +24,7 @@ public class CreateOrderResponse {
 	public CreateOrderResponse(
 		Long orderId,
 		Long memberId,
-		Long deliveryId,
+		Long addressId,
 		LocalDateTime createdAt,
 		Status status,
 		int totalShippingPrice,
@@ -34,7 +34,7 @@ public class CreateOrderResponse {
 	) {
 		this.orderId = orderId;
 		this.memberId = memberId;
-		this.deliveryId = deliveryId;
+		this.addressId = addressId;
 		this.createdAt = createdAt;
 		this.status = status;
 		this.totalShippingPrice = totalShippingPrice;

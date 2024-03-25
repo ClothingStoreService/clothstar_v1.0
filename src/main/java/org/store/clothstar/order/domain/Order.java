@@ -13,7 +13,7 @@ import lombok.Getter;
 public class Order {
 	private Long orderId;
 	private Long memberId;
-	private Long deliveryId;
+	private Long addressId;
 	private LocalDateTime createdAt;
 	private Status status;
 	private int totalShippingPrice;
@@ -24,7 +24,7 @@ public class Order {
 	public Order(
 		Long orderId,
 		Long memberId,
-		Long deliveryId,
+		Long addressId,
 		LocalDateTime createdAt,
 		Status status,
 		int totalShippingPrice,
@@ -34,7 +34,7 @@ public class Order {
 	) {
 		this.orderId = orderId;
 		this.memberId = memberId;
-		this.deliveryId = deliveryId;
+		this.addressId = addressId;
 		this.createdAt = createdAt;
 		this.status = status;
 		this.totalShippingPrice = totalShippingPrice;
@@ -46,7 +46,7 @@ public class Order {
 	public OrderResponse toOrderResponse(
 		Long orderId,
 		Long memberId,
-		Long deliveryId,
+		Long addressId,
 		LocalDateTime createdAt,
 		Status status,
 		int totalShippingPrice,
@@ -57,7 +57,7 @@ public class Order {
 		return new OrderResponse(
 			orderId = this.getOrderId(),
 			memberId = this.getMemberId(),
-			deliveryId = this.getDeliveryId(),
+			addressId = this.getAddressId(),
 			createdAt = this.getCreatedAt(),
 			status = this.getStatus(),
 			totalShippingPrice = this.getTotalShippingPrice(),
@@ -70,7 +70,7 @@ public class Order {
 	public CreateOrderResponse toCreateOrderResponse(
 		Long orderId,
 		Long memberId,
-		Long deliveryId,
+		Long addressId,
 		LocalDateTime createdAt,
 		Status status,
 		int totalShippingPrice,
@@ -81,7 +81,7 @@ public class Order {
 		return new CreateOrderResponse(
 			orderId = this.getOrderId(),
 			memberId = this.getMemberId(),
-			deliveryId = this.getDeliveryId(),
+			addressId = this.getAddressId(),
 			createdAt = this.getCreatedAt(),
 			status = this.getStatus(),
 			totalShippingPrice = this.getTotalShippingPrice(),

@@ -50,7 +50,7 @@ class OrderIntegrationTest {
 		actions.andExpect(MockMvcResultMatchers.status().isOk())
 			.andExpect(MockMvcResultMatchers.jsonPath("$.orderId").value(createOrderResponse.getOrderId()))
 			.andExpect(MockMvcResultMatchers.jsonPath("$.memberId").value(createOrderResponse.getMemberId()))
-			.andExpect(MockMvcResultMatchers.jsonPath("$.deliveryId").value(createOrderResponse.getDeliveryId()))
+			.andExpect(MockMvcResultMatchers.jsonPath("$.addressId").value(createOrderResponse.getAddressId()))
 			.andExpect(MockMvcResultMatchers.jsonPath("$.createdAt").isNotEmpty())
 			.andExpect(MockMvcResultMatchers.jsonPath("$.status").value("APPROVE"))
 			.andExpect(MockMvcResultMatchers.jsonPath("$.totalShippingPrice")
@@ -66,7 +66,7 @@ class OrderIntegrationTest {
 	private CreateOrderResponse getCreateOrderResponse() {
 		Long orderId = 105L; //추후 고유 아이디 만드는 메서드 generateUniqueOrderId() 생성하여 테스트하기
 		Long memberId = 2L;
-		Long deliveryId = 3L;
+		Long addressId = 3L;
 		LocalDateTime createdAt = LocalDateTime.now();
 		Status status = Status.APPROVE;
 		int totalShippingPrice = 3000;
@@ -75,7 +75,7 @@ class OrderIntegrationTest {
 		int totalPaymentPrice = 53000;
 
 		CreateOrderResponse createOrderResponse = new CreateOrderResponse(
-			orderId, memberId, deliveryId, createdAt, status, totalShippingPrice, totalProductsPrice, paymentMethod,
+			orderId, memberId, addressId, createdAt, status, totalShippingPrice, totalProductsPrice, paymentMethod,
 			totalPaymentPrice
 		);
 		return createOrderResponse;
@@ -84,7 +84,7 @@ class OrderIntegrationTest {
 	private CreateOrderRequest getCreateOrderRequest() {
 		Long orderId = 105L;
 		Long memberId = 2L;
-		Long deliveryId = 3L;
+		Long addressId = 3L;
 		Status status = Status.APPROVE;
 		int totalShippingPrice = 3000;
 		int totalProductsPrice = 50000;
@@ -92,7 +92,7 @@ class OrderIntegrationTest {
 		int totalPaymentPrice = 53000;
 
 		CreateOrderRequest createOrderRequest = new CreateOrderRequest(
-			orderId, memberId, deliveryId, status, totalShippingPrice, totalProductsPrice, paymentMethod,
+			orderId, memberId, addressId, status, totalShippingPrice, totalProductsPrice, paymentMethod,
 			totalPaymentPrice
 		);
 		return createOrderRequest;

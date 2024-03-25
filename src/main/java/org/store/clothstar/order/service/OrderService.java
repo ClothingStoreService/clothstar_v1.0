@@ -20,7 +20,7 @@ public class OrderService {
 		return order.toOrderResponse(
 			order.getOrderId(),
 			order.getMemberId(),
-			order.getDeliveryId(),
+			order.getAddressId(),
 			order.getCreatedAt(),
 			order.getStatus(),
 			order.getTotalShippingPrice(),
@@ -36,7 +36,7 @@ public class OrderService {
 		return order.toCreateOrderResponse(
 			order.getOrderId(),
 			order.getMemberId(),
-			order.getDeliveryId(),
+			order.getAddressId(),
 			order.getCreatedAt(),
 			order.getStatus(),
 			order.getTotalShippingPrice(),

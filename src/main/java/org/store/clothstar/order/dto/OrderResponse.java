@@ -13,7 +13,7 @@ import lombok.Getter;
 public class OrderResponse {
 	private Long orderId;
 	private Long memberId;
-	private Long deliveryId;
+	private Long addressId;
 	private LocalDateTime createdAt;
 	private Status status;
 	private int totalShippingPrice;

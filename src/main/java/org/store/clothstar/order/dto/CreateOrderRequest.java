@@ -17,7 +17,7 @@ public class CreateOrderRequest {
 
 	private Long orderId;
 	private Long memberId;
-	private Long deliveryId;
+	private Long addressId;
 	private Status status;
 	private int totalShippingPrice;
 	private int totalProductsPrice;
@@ -28,7 +28,7 @@ public class CreateOrderRequest {
 	public CreateOrderRequest(
 		Long orderId,
 		Long memberId,
-		Long deliveryId,
+		Long addressId,
 		Status status,
 		int totalShippingPrice,
 		int totalProductsPrice,
@@ -37,7 +37,7 @@ public class CreateOrderRequest {
 	) {
 		this.orderId = orderId;
 		this.memberId = memberId;
-		this.deliveryId = deliveryId;
+		this.addressId = addressId;
 		this.status = status;
 		this.totalShippingPrice = totalShippingPrice;
 		this.totalProductsPrice = totalProductsPrice;
@@ -49,7 +49,7 @@ public class CreateOrderRequest {
 		return Order.builder()
 			.orderId(orderId)
 			.memberId(memberId)
-			.deliveryId(deliveryId)
+			.addressId(addressId)
 			.createdAt(LocalDateTime.now())
 			.status(status)
 			.totalShippingPrice(totalShippingPrice)
