@@ -15,43 +15,19 @@ import lombok.Getter;
 @Builder
 public class CreateOrderRequest {
 
-	private Long orderId;
-	private Long memberId;
-	private Long addressId;
-	private Status status;
 	private int totalShippingPrice;
 	private int totalProductsPrice;
 	@NotNull
 	private PaymentMethod paymentMethod;
 	private int totalPaymentPrice;
 
-	public CreateOrderRequest(
-		Long orderId,
-		Long memberId,
-		Long addressId,
-		Status status,
-		int totalShippingPrice,
-		int totalProductsPrice,
-		PaymentMethod paymentMethod,
-		int totalPaymentPrice
-	) {
-		this.orderId = orderId;
-		this.memberId = memberId;
-		this.addressId = addressId;
-		this.status = status;
-		this.totalShippingPrice = totalShippingPrice;
-		this.totalProductsPrice = totalProductsPrice;
-		this.paymentMethod = paymentMethod;
-		this.totalPaymentPrice = totalPaymentPrice;
-	}
-
 	public Order toOrder() {
 		return Order.builder()
-			.orderId(orderId)
-			.memberId(memberId)
-			.addressId(addressId)
+			.orderId(1L)
+			.memberId(1L)
+			.addressId(1L)
 			.createdAt(LocalDateTime.now())
-			.status(status)
+			.status(Status.APPROVE)
 			.totalShippingPrice(totalShippingPrice)
 			.totalProductsPrice(totalProductsPrice)
 			.paymentMethod(paymentMethod)
