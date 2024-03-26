@@ -12,12 +12,14 @@ public class SecurityConfiguration {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/", "/login", "/signup").permitAll()
-			.antMatchers(HttpMethod.POST, "/v1/members").permitAll()
+			.antMatchers("/", "/login", "/signup", "/v1/members").permitAll()
 			.antMatchers(HttpMethod.GET, "/admin").hasRole("ADMIN")
+			.antMatchers(HttpMethod.GET, "/seller").hasRole("SELLER")
+			.antMatchers(HttpMethod.GET, "/user").hasRole("USER")
 			.anyRequest().authenticated()
 			.and()
-			.formLogin().loginPage("/login");
+			.formLogin()
+			.loginPage("/login");
 
 		return http.build();
 	}

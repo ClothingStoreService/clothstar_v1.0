@@ -9,5 +9,5 @@ import org.store.clothstar.member.domain.Address;
 public interface AddressRepository {
 	List<Address> findMemberAddress(Long memberId);
 
-	public int save(Address address);
+	int save(Address address);
 }

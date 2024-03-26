@@ -1,17 +1,18 @@
 package org.store.clothstar.member.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.store.clothstar.member.domain.Member;
 
 @Mapper
 public interface MemberRepository {
-	public int save(Member member);
+	int save(Member member);
 
-	public List<Member> findAll();
+	List<Member> findAll();
 
-	public Member findById(Long memberId);
+	Member findById(Long memberId);
 
-	public Member findByEmail(String email);
+	Optional<Member> findByEmail(String email);
 }

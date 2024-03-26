@@ -38,9 +38,7 @@ public class MemberService {
 		return new MemberResponse(member);
 	}
 
-	public MemberResponse getMemberByEmail(String email) {
-		Member member = memberRepository.findByEmail(email);
-
-		return new MemberResponse(member);
+	public Member emailCheck(String email) {
+		return null;
 	}
 }

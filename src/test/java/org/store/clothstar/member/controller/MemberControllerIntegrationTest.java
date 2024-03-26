@@ -64,8 +64,8 @@ class MemberControllerIntegrationTest {
 	}
 
 	private CreateMemberRequest getCreateMemberRequest() {
-		String email = "test email";
-		String password = "test pw";
+		String email = "test@test";
+		String password = "test";
 		String name = "test name";
 		String telNo = "tel No";
 
