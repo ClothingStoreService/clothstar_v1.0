@@ -65,3 +65,4 @@ where TABLE_SCHEMA = 'dev_clothstar';
 
 select *
 from member;
+

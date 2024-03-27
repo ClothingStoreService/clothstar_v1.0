@@ -2,13 +2,14 @@ package org.store.clothstar.member.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.store.clothstar.member.domain.Member;
 import org.store.clothstar.member.dto.CreateMemberRequest;
+import org.store.clothstar.member.dto.CreateMemberResponse;
 import org.store.clothstar.member.dto.MemberResponse;
 import org.store.clothstar.member.service.MemberService;
 
@@ -30,7 +31,7 @@ public class MemberController {
 	}
 
 	@PostMapping("/v1/members")
-	public Member signup(@RequestBody CreateMemberRequest createMemberDTO) {
+	public ResponseEntity<CreateMemberResponse> signup(@RequestBody CreateMemberRequest createMemberDTO) {
 		return memberService.signup(createMemberDTO);
 	}
 }
