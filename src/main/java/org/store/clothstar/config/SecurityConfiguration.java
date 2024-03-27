@@ -20,7 +20,8 @@ public class SecurityConfiguration {
 			// .antMatchers(HttpMethod.GET, "/user").hasRole("USER")
 			.and()
 			.formLogin()
-			.loginPage("/login");
+			.loginPage("/login")
+			.usernameParameter("email");
 
 		return http.build();
 	}

@@ -13,16 +13,15 @@ if (createButton) {
                 name: document.getElementById("name").value,
                 telNo: document.getElementById("telNo").value,
             }),
-        }).then((res) => {
-            return res.json()
-        }).then((res) => {
-            if (res.success) {
-                alert(res.message);
-                location.replace("/login");
-            } else {
-                alert(res.message);
-            }
-        }).catch(() => {
+        }).then((res) => res.json())
+            .then((res) => {
+                if (res.success) {
+                    alert(res.message);
+                    location.replace("/login");
+                } else {
+                    alert(res.message);
+                }
+            }).catch(() => {
             alert("ajax 호출 에러")
         });
     })

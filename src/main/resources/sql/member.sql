@@ -62,6 +62,7 @@ select *
 from information_schema.TABLES
 where TABLE_SCHEMA = 'dev_clothstar';
 
+use dev_clothstar;
 
 select *
 from member;

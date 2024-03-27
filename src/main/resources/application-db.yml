@@ -11,6 +11,14 @@ sql:
   init:
     mode: always
 
+mybatis:
+  mapper-locations: classpath:/mappers/**.xml
+
+logging:
+  level:
+    'org.springframework.jdbc': debug
+    'org.store.clothstar.member.repository': trace
+
 --- # local
 spring:
   config:
@@ -46,12 +54,3 @@ spring:
     url: jdbc:mysql://db-lothstar.c144gicsebz1.ap-southeast-2.rds.amazonaws.com:3306/dev_clothstar?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: admin
     password: star010101
-
-logging:
-  level:
-    'org.springframework.jdbc': debug
-    'org.store.clothstar.member.repository': trace
-
-
-
-

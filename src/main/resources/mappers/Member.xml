@@ -18,8 +18,10 @@
 
     <insert id="save" parameterType="org.store.clothstar.member.domain.Member"
             useGeneratedKeys="true" keyProperty="memberId" keyColumn="member_id">
-        
-        insert into member(email, password, name, tel_no, total_payment_price, role, grade, created_at)
-        values(#{email}, #{password}, #{name}, #{telNo}, #{totalPaymentPrice}, #{role}, #{grade}, #{createdAt})
+
+        insert into member
+        (email, password, name, tel_no, total_payment_price, point, role, grade, created_at)
+        values
+        (#{email}, #{password}, #{name}, #{telNo}, #{totalPaymentPrice}, #{point}, #{role}, #{grade}, #{createdAt})
     </insert>
 </mapper>
