@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import org.store.clothstar.order.domain.Order;
 import org.store.clothstar.order.domain.PaymentMethod;
 import org.store.clothstar.order.domain.Status;
-import org.store.clothstar.order.utils.CreateOrderId;
+import org.store.clothstar.order.utils.GenerateOrderId;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -28,7 +28,7 @@ public class CreateOrderRequest {
 
 	public Order toOrder() {
 		return Order.builder()
-			.orderId(CreateOrderId.createOrderId())
+			.orderId(GenerateOrderId.generateOrderId())
 			.memberId(1L)
 			.addressId(1L)
 			.createdAt(LocalDateTime.now())
