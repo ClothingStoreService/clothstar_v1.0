@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS `orderDetail`;
+DROP TABLE IF EXISTS `order_detail`;
 
-CREATE TABLE `orderDetail`
+CREATE TABLE `order_detail`
 (
     `order_detail_id` BIGINT NOT NULL,
     `product_id`      BIGINT NOT NULL,
@@ -9,30 +9,30 @@ CREATE TABLE `orderDetail`
     `quantity`        int    NOT NULL
 );
 
-ALTER TABLE `orderDetail`
+ALTER TABLE `order_detail`
     ADD CONSTRAINT `PK_ORDERDETAIL` PRIMARY KEY (
                                                  `order_detail_id`
         );
 
-ALTER TABLE `orderDetail`
+ALTER TABLE `order_detail`
     ADD CONSTRAINT `FK_Product_TO_orderDetail_1` FOREIGN KEY (`product_id`)
         REFERENCES `product` (`product_id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE;
 
-ALTER TABLE `orderDetail`
+ALTER TABLE `order_detail`
     ADD CONSTRAINT `FK_orders_TO_orderDetail_1` FOREIGN KEY (`order_id`)
         REFERENCES `orders` (`order_id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE;
 
 
-ALTER TABLE `orderDetail`
+ALTER TABLE `order_detail`
     ADD CONSTRAINT `FK_Option_TO_orderDetail_1` FOREIGN KEY (`option_id`)
         REFERENCES `option` (`option_id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE;
 
 
-ALTER TABLE orderDetail
+ALTER TABLE order_detail
     DROP FOREIGN KEY `FK_Product_TO_orderDetail_1`;
