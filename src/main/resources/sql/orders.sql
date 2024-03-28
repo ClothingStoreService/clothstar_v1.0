@@ -59,4 +59,4 @@ FROM orders;
 
 INSERT INTO orders (order_id, member_id, address_id, created_at, status, total_shipping_price, total_products_price,
                     payment_method, total_payment_price)
-VALUES ('14241232', '242', '334', CURRENT_TIMESTAMP, 'APPROVE', '3000', '50000', 'CARD', '53000');
+VALUES ('14241232', '242', '334', CURRENT_TIMESTAMP, 'WAITING', '3000', '50000', 'CARD', '53000');

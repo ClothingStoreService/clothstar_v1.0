@@ -32,7 +32,7 @@ public class CreateOrderRequest {
 			.memberId(1L)
 			.addressId(1L)
 			.createdAt(LocalDateTime.now())
-			.status(Status.APPROVE)
+			.status(Status.WAITING)
 			.totalShippingPrice(totalShippingPrice)
 			.totalProductsPrice(totalProductsPrice)
 			.paymentMethod(paymentMethod)

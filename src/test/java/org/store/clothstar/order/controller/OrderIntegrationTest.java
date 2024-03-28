@@ -49,7 +49,7 @@ class OrderIntegrationTest {
 			// .andExpect(MockMvcResultMatchers.jsonPath("$.memberId").value(1))
 			// .andExpect(MockMvcResultMatchers.jsonPath("$.addressId").value(1))
 			// .andExpect(MockMvcResultMatchers.jsonPath("$.createdAt").isNotEmpty())
-			// .andExpect(MockMvcResultMatchers.jsonPath("$.status").value("APPROVE"))
+			// .andExpect(MockMvcResultMatchers.jsonPath("$.status").value("WAITING"))
 			.andExpect(MockMvcResultMatchers.jsonPath("$.totalShippingPrice")
 				.value(createOrderRequest.getTotalShippingPrice()))
 			.andExpect(MockMvcResultMatchers.jsonPath("$.totalProductsPrice")
