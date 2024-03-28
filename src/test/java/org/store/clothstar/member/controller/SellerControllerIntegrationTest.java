@@ -41,7 +41,8 @@ class SellerControllerIntegrationTest {
 			.contentType(MediaType.APPLICATION_JSON)
 			.content(requestBody));
 		//then
-		actions.andDo(print()).andExpect(MockMvcResultMatchers.status().isOk())
+		actions.andDo(print())
+			.andExpect(MockMvcResultMatchers.status().isOk())
 			.andExpect(MockMvcResultMatchers.jsonPath("$.brandName").value("test brand name"));
 	}
 

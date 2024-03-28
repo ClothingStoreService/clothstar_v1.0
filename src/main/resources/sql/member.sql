@@ -6,13 +6,15 @@ CREATE TABLE `member`
     `name`                varchar(255) NOT NULL,
     `tel_no`              varchar(255) NOT NULL,
     `total_payment_price` INT          NULL,
+    `point`               INT          NULL,
     `role`                varchar(100) NOT NULL COMMENT 'ADMIN, SELLER, USER',
     `grade`               varchar(100) NOT NULL COMMENT 'BRONZE, SILVER, GOLD, PLATINUM, DIAMOND',
     `created_at`          timestamp    NOT NULL,
     `modified_at`         timestamp    NULL,
     `deleted_at`          timestamp    NULL,
 
-    CONSTRAINT PK_MEMBER PRIMARY KEY (member_id)
+    CONSTRAINT PK_member PRIMARY KEY (member_id),
+    CONSTRAINT UK_member_email UNIQUE (email)
 );
 
 DROP TABLE IF EXISTS `member`;
@@ -42,7 +44,6 @@ CREATE TABLE `seller`
     `brand_name`       varchar(255) NOT NULL,
     `biz_no`           varchar(255) NULL,
     `total_sell_price` int          NULL,
-    `authority`        varchar(255) NULL,
     `created_at`       timestamp    NOT NULL
 );
 
@@ -52,3 +53,17 @@ select *
 from address;
 select *
 from seller;
+
+select *
+from information_schema.table_constraints
+where constraint_schema = 'dev_clothstar';
+
+select *
+from information_schema.TABLES
+where TABLE_SCHEMA = 'dev_clothstar';
+
+use dev_clothstar;
+
+select *
+from member;
+

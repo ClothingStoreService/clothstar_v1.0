@@ -12,6 +12,5 @@ public class Seller {
 	private String brandName;
 	private String bizNo;
 	private int totalSellPrice;
-	private String authority;
 	private LocalDateTime createdAt;
 }
