@@ -107,7 +107,7 @@
   승인 주문 조회: GET /v1/seller/orders/{orderId}
   주문 취소 여부 결정: PATCH /v1/seller/orders/{orderId}-cancel
   주문 최종 승인: PATCH /v1/seller/orders/{orderId}-approve
-  배송 시작(배송상태 변경): PATCH /v1/seller/orders/{orderId}/delivery/
+  배송 시작(배송상태 변경): PATCH /v1/seller/orders/{orderId}/delivery/{deliveryId}
     - 프로세스
         1. 승인된 주문 조회(GET)
         2. 주문 취소 여부 결정(PATCH)
