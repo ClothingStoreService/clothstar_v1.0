@@ -8,24 +8,24 @@ import lombok.Builder;
 import lombok.Getter;
 
 @Getter
+@Builder
 public class Order {
 	private Long orderId;
 	private Long memberId;
-	private Long deliveryId;
+	private Long addressId;
 	private LocalDateTime createdAt;
-	private String status;
+	private Status status;
 	private int totalShippingPrice;
 	private int totalProductsPrice;
 	private PaymentMethod paymentMethod;
 	private int totalPaymentPrice;
 
-	@Builder
 	public Order(
 		Long orderId,
 		Long memberId,
-		Long deliveryId,
+		Long addressId,
 		LocalDateTime createdAt,
-		String status,
+		Status status,
 		int totalShippingPrice,
 		int totalProductsPrice,
 		PaymentMethod paymentMethod,
@@ -33,7 +33,7 @@ public class Order {
 	) {
 		this.orderId = orderId;
 		this.memberId = memberId;
-		this.deliveryId = deliveryId;
+		this.addressId = addressId;
 		this.createdAt = createdAt;
 		this.status = status;
 		this.totalShippingPrice = totalShippingPrice;
@@ -45,9 +45,9 @@ public class Order {
 	public OrderResponse toOrderResponse(
 		Long orderId,
 		Long memberId,
-		Long deliveryId,
+		Long addressId,
 		LocalDateTime createdAt,
-		String status,
+		Status status,
 		int totalShippingPrice,
 		int totalProductsPrice,
 		PaymentMethod paymentMethod,
@@ -56,7 +56,7 @@ public class Order {
 		return new OrderResponse(
 			orderId = this.getOrderId(),
 			memberId = this.getMemberId(),
-			deliveryId = this.getDeliveryId(),
+			addressId = this.getAddressId(),
 			createdAt = this.getCreatedAt(),
 			status = this.getStatus(),
 			totalShippingPrice = this.getTotalShippingPrice(),

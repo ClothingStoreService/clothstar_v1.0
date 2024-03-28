@@ -19,7 +19,7 @@ public class OrderService {
 		return order.toOrderResponse(
 			order.getOrderId(),
 			order.getMemberId(),
-			order.getDeliveryId(),
+			order.getAddressId(),
 			order.getCreatedAt(),
 			order.getStatus(),
 			order.getTotalShippingPrice(),
@@ -30,7 +30,8 @@ public class OrderService {
 	}
 
 	public CreateOrderRequest saveOrder(CreateOrderRequest createOrderRequest) {
-		orderRepository.saveOrder(createOrderRequest.toOrder());
+		Order order = createOrderRequest.toOrder();
+		orderRepository.saveOrder(order);
 		return createOrderRequest;
 	}
 }
